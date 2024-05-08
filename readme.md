@@ -1,3 +1,5 @@
+# Playwright Notes
+## Commands
 1. **npm init playwright@latest** -->  To install playwright
 2. **npx playwright test** --> Runs the end-to-end tests.
 3. **npx playwright test --ui** --> Starts the interactive UI mode.
