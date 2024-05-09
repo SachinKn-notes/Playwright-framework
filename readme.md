@@ -13,5 +13,8 @@
 11. **npx playwright test uat\homePageTest** --> To run only specific module tests
 12. **npx playwright test homePageTest.spec.js --project=chromium --headed --debug** --> To debug
 
-![image](https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b761ed00-72be-41c7-9471-c1b1c756a795)
-![image](https://prnt.sc/HyZdrGhIDUmD)
+## Playwright Test Examples
+### 1. Simple Test in Playwright - [image link](https://prnt.sc/HyZdrGhIDUmD)
+
+<!-- ![image](https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b761ed00-72be-41c7-9471-c1b1c756a795) -->
+<img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b761ed00-72be-41c7-9471-c1b1c756a795" width="600">
