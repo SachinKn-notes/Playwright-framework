@@ -8,3 +8,5 @@
 6. **npx playwright test example** --> Runs the tests in a specific file.
 7. **npx playwright test --debug** --> Runs the tests in debug mode.
 8. **npx playwright codegen** --> Auto generate tests with Codegen.
+-------------------------------------------------------------------
+9. **npx playwright show-report** --> To see report.
