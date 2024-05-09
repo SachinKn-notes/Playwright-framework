@@ -11,3 +11,4 @@
 9. **npx playwright show-report** --> To see report.
 10. **npx playwright test uat\homePageTest.spec.js** --> To run only specific module tests
 11. **npx playwright test uat\homePageTest** --> To run only specific module tests
+12. **npx playwright test homePageTest.spec.js --project=chromium --headed --debug** --> To debug
