@@ -16,5 +16,5 @@
 ## Playwright Test Examples
 ### 1. Simple Test in Playwright - [image link](https://prnt.sc/HyZdrGhIDUmD)
 
-![image](https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b761ed00-72be-41c7-9471-c1b1c756a795)
+<!-- ![image](https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b761ed00-72be-41c7-9471-c1b1c756a795) -->
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b761ed00-72be-41c7-9471-c1b1c756a795" width="600">
