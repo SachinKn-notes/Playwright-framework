@@ -18,3 +18,28 @@
 
 <!-- ![image](https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b761ed00-72be-41c7-9471-c1b1c756a795) -->
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b761ed00-72be-41c7-9471-c1b1c756a795" width="600">
+
+```const { chromium } = require('playwright');
+
+async function test_1() {
+
+    // Creating browser instanse
+    const browser = await chromium.launch({ headless: false });
+
+    // Launching browser
+    const page = await browser.newPage();
+
+    // Launching the page
+    await page.goto('https://www.google.com');
+
+    // closing the browser
+    await browser.close();
+
+}
+
+test_1();
+
+
+To run this execute below command
+----------------------------------------
+* node fileName.js```
