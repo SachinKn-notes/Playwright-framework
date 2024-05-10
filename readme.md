@@ -19,7 +19,8 @@
 <!-- ![image](https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b761ed00-72be-41c7-9471-c1b1c756a795) -->
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b761ed00-72be-41c7-9471-c1b1c756a795" width="600">
 
-```const { chromium } = require('playwright');
+```
+const { chromium } = require('playwright');
 
 async function test_1() {
 
@@ -42,8 +43,5 @@ test_1();
 
 To run this execute below command
 ----------------------------------------
-* node fileName.js```
-
-
-kjhgffghjksdfghjkl;lkjhgfds
-| asdfg | ASDF |
+- node fileName.js
+```
