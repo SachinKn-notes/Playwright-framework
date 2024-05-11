@@ -1,6 +1,6 @@
 ## Handling web elements
 
-### 1. Handling Text field.
+### 1. Handling Text field. [code link](https://github.com/sachinknsachi/Playwright-tutorials/blob/master/tests/tests-2/01_HandlingInputField.spec.js)
 ```
 test('Handling Text field', async ({page}) => {
 
