@@ -115,6 +115,7 @@ test('Home test', async ({page}) => {
 ### Positive assertions
 - await expect(page).**toHaveTitle**('--title');
 - await expect(page).**toHaveURL**('--url');
+  
 * await expect(page.locator('--locator')).**toBeVisible**();
 * await expect(page.locator('--locator')).**toBeEnabled**();
 * await expect(page.locator('--locator')).**toBeDisabled**();
@@ -145,4 +146,13 @@ await multiSelectDdLocator .selectOption(['R', 'G']);
 const multiSelectDdOptionsLocator = page.locator('[id=favorite-colors] option');
 * await expect(multiSelectDdOptionsLocator).**toHaveCount**(3);
 ### Negative Assertions
-* expect(page).**not**.**toHave**--()
+- await expect(page).**not**.**toHaveTitle**('--title');
+- await expect(page).**not**.**toHaveURL**('--url');
+
+* await expect(page.locator('--locator')).**not**.**toBeVisible**();
+* await expect(page.locator('--locator')).**not**.**toBeEnabled**();
+* await expect(page.locator('--locator')).**not**.**toBeDisabled**();
+* await expect(page.locator('--locator')).**not**.**toBeChecked**();
+  
+- expect(page).**not**.**toHave**--();
+- etc...
