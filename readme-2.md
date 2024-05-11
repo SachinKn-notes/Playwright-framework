@@ -486,7 +486,7 @@ test('Drag and Drop', async ({page}) => {
 
 ### 11. Keyboard Actions
 
-#### I. Copy paste text.
+#### i. Copy paste text.
 ```
 test('Copy paste text', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com');
@@ -499,7 +499,7 @@ test('Copy paste text', async ({page}) => {
 })
 ```
 
-#### II. clear and type - Approach 1.
+#### ii. clear and type - Approach 1.
 ```
 test.skip('clear and type - Approach 1', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com');
@@ -508,7 +508,7 @@ test.skip('clear and type - Approach 1', async ({page}) => {
 })
 ```
 
-#### III. clear and type - Approach 2.
+#### iii. clear and type - Approach 2.
 ```
 test.skip('clear and type - Approach 2', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com');
@@ -520,7 +520,7 @@ test.skip('clear and type - Approach 2', async ({page}) => {
 })
 ```
 
-#### IV. clear and type - Approach 3.
+#### iv. clear and type - Approach 3.
 ```
 test.skip('clear and type - Approach 3', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com');
@@ -532,7 +532,7 @@ test.skip('clear and type - Approach 3', async ({page}) => {
 })
 ```
 
-#### V. clear and type - Approach 4.
+#### v. clear and type - Approach 4.
 ```
 test.skip('clear and type - Approach 4', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com');
@@ -553,7 +553,7 @@ test.skip('clear and type - Approach 4', async ({page}) => {
 
 ### 12. Handling Upload Files
 
-#### I. Single file.
+#### i. Single file.
 ```
 test('Upload Files - Single file', async ({page}) => {
 
@@ -568,7 +568,7 @@ test('Upload Files - Single file', async ({page}) => {
 })
 ```
 
-#### II. Multiple files.
+#### ii. Multiple files.
 ```
 test.skip('Upload Files - Multiple files', async ({page}) => {
 
@@ -584,7 +584,7 @@ test.skip('Upload Files - Multiple files', async ({page}) => {
 })
 ```
 
-#### III. Remove uploaded file.
+#### iii. Remove uploaded file.
 ```
 test('Upload Files - Remove uploaded file', async ({page}) => {
 
@@ -609,7 +609,7 @@ test('Upload Files - Remove uploaded file', async ({page}) => {
 
 ### 13. Capture Screenshots
 
-#### I. Page Screenshot
+#### i. Page Screenshot
 ```
 test('Page Screenshot', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com');
@@ -618,7 +618,7 @@ test('Page Screenshot', async ({page}) => {
 })
 ```
 
-#### II. Full Page Screenshot
+#### ii. Full Page Screenshot
 ```
 test('Full Page Screenshot', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com');
@@ -627,7 +627,7 @@ test('Full Page Screenshot', async ({page}) => {
 })
 ```
 
-#### III. Element Screenshot
+#### iii. Element Screenshot
 ```
 test('Element Screenshot', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com');
@@ -644,7 +644,7 @@ test('Element Screenshot', async ({page}) => {
 
 ### 16. Tags
 
-#### I. Script
+#### i. Script
 ```
 const {test, expect} = require('@playwright/test');
 
@@ -669,17 +669,17 @@ test('Test_5 @sanity @reg', async () => {
 })
 ```
 
-#### II. To run only @sanity
+#### ii. To run only @sanity
 ```
 npx playwright test 05_Tags --project=chromium --grep '@sanity'
 ```
 
-#### III. To run only @reg
+#### iii. To run only @reg
 ```
 npx playwright test 05_Tags --project=chromium --grep '@reg'
 ```
 
-#### III. To run only @sanity but not @reg
+#### iv. To run only @sanity but not @reg
 ```
 npx playwright test 05_Tags --project=chromium --grep '@sanity' --grep-invert '@reg'
 ```
