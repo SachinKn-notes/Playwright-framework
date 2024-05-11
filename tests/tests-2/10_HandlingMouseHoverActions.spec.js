@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test');
 
-test('Date picker', async ({page}) => {
+test('Mouse hover', async ({page}) => {
 
     await page.goto('https://uat.odysol.com/swift/cruise?siid=130386');
 
