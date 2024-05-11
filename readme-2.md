@@ -59,7 +59,7 @@ test('Handling Click actions', async ({page}) => {
 })
 ```
 
-### 3. Handling Dropdowns
+### 3. Handling Dropdowns.
 ```
 test('Handling Dropdowns', async ({page}) => {
 
@@ -102,14 +102,32 @@ test('Handling Dropdowns', async ({page}) => {
 })
 ```
 
-### 4. Handling ------
+### 4. Handling Multi Select Dropdown.
+```
+test('Handling Multi Select Dropdown', async ({page}) => {
+
+    await page.goto('https://testautomationpractice.blogspot.com');
+
+    // Approach-1
+    await page.selectOption('#colors', ['red', 'green', 'white']);
+
+    // Assertions
+    await expect(page.locator('#colors')).toHaveValues(['red', 'green', 'white']);
+    await expect(page.locator('#colors option')).toHaveCount(5);
+    expect(await page.locator('#colors option').count()).toBe(5);
+    expect(await page.locator('#colors option').count() == 5).toBeTruthy();
+})
 ```
 
+### 5. Move to element.
 ```
+test('Move to element', async ({page}) => {
 
-### 5. Handling ------
-```
+    await page.goto('https://testautomationpractice.blogspot.com');
 
+    await page.hover('#colors');
+
+})
 ```
 
 ### 6. Handling ------
