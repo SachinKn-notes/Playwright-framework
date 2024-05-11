@@ -215,3 +215,27 @@ async function waitForAjaxToComplete(page) {
     }, { timeout: 120000 });
 }
 ```
+
+## Increase Test Timeout
+
+### Approach 1
+```
+test('Before Eaach and After Each', async ({page}) => {
+
+    // Increaase test timeout - Approach 1
+    test.setTimeout(60000);
+
+    console.log(testInfo.timeout);
+})
+```
+
+### Approach 2
+```
+test('Before Eaach and After Each', async ({page}, testInfo) => {
+
+    // Increaase test timeout - Approach 2
+    test.setTimeout(testInfo.timeout+10000);
+
+    console.log(testInfo.timeout);
+})
+```
