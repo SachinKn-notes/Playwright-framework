@@ -60,7 +60,7 @@ test('Handling Click actions', async ({page}) => {
 ```
 
 ### 3. Handling Dropdowns.
-```
+&nbsp;&nbsp;&nbsp;&nbsp;```
 test('Handling Dropdowns', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com');
