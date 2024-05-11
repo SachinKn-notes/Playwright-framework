@@ -161,10 +161,17 @@ const multiSelectDdOptionsLocator = page.locator('[id=favorite-colors] option');
 
 ## Waits
 
-### 1. To wait for a locator
+### 1. To wait for a locator to present
+```
 await page.waitForSelector('[data-ody-id="AdvanceSearchLink"]');
+```
 
-### 2. waitForDocumentToGetReady()
+### 2. To wait for a locator to visible
+```
+await page.waitForSelector('[data-ody-id="AdvanceSearchLink"]', {status: 'visible'});
+```
+
+### 3. waitForDocumentToGetReady()
 #### Selenium
 ```
 public void waitForDocumentToGetReady() {
@@ -179,7 +186,7 @@ async function waitForDocumentToGetReady(page) {
 }
 ```
 
-### 3. waitForAjaxToComplete()
+### 4. waitForAjaxToComplete()
 #### Selenium
 ```
 public void waitForAjaxToComplete() {
