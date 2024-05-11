@@ -161,12 +161,12 @@ const multiSelectDdOptionsLocator = page.locator('[id=favorite-colors] option');
 
 ## Waits
 
-### 1. To wait for a locator to present
+### 1. To wait for a locator to be present
 ```
 await page.waitForSelector('[data-ody-id="AdvanceSearchLink"]');
 ```
 
-### 2. To wait for a locator to visible
+### 2. To wait for a locator to be visible
 ```
 await page.waitForSelector('[data-ody-id="AdvanceSearchLink"]', {status: 'visible'});
 ```
