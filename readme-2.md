@@ -1,4 +1,3 @@
-
 ## Annotations | Only, Skip, Fail, Fixme & Slow.
 
 ### 1. Only - Runs only the specific test and skips rest.
@@ -56,4 +55,9 @@ test('Test-6', async ({browserName}, testInfo) => {
     console.log('Test-6()');
 })
 ```
-
+output
+```
+60000
+180000
+Test-6()
+```
