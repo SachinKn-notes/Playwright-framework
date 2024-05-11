@@ -145,4 +145,4 @@ await multiSelectDdLocator .selectOption(['R', 'G']);
 const multiSelectDdOptionsLocator = page.locator('[id=favorite-colors] option');
 * await expect(multiSelectDdOptionsLocator).**toHaveCount**(3);
 ### Negative Assertions
-* expect(page).not.toHave--()
+* expect(page).**not**.**toHave**--()
