@@ -1,4 +1,4 @@
-# BeforeEach, AfterEach, BeforeAll, AfterAll.
+## BeforeEach, AfterEach, BeforeAll, AfterAll.
 ```
 const {test, expect} = require('@playwright/test');
 
@@ -54,9 +54,9 @@ test.afterAll('afterAll', async () => {
 })
 ```
 
-# Grouping Tests
+## Grouping Tests
 
-## 1. Describe Block
+### 1. Describe Block
 ```
 const {test, expect} = require('@playwright/test');
 
@@ -112,7 +112,7 @@ test.afterAll('afterAll', async () => {
 })
 ```
 
-## 2. Execute Specific Describe Block (test.describe.only)
+### 2. Execute Specific Describe Block (test.describe.only)
 ```
 test.describe.only('Group-1', async () => {
 
@@ -129,7 +129,7 @@ test.describe.only('Group-1', async () => {
 })
 ```
 
-## 3. Skip Specific Describe Block (test.describe.skip)
+### 3. Skip Specific Describe Block (test.describe.skip)
 ```
 test.describe.skip('Group-2', async () => {
 
