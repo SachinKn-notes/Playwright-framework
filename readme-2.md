@@ -23,5 +23,38 @@ test('Handling Text field', async ({page}) => {
 
 ### 2. Handling Click actions. [Radio buttons](https://github.com/sachinknsachi/Playwright-tutorials/blob/master/tests/tests-2/02_HandlingRadiobutton.spec.js), [Checkboxes](https://github.com/sachinknsachi/Playwright-tutorials/blob/master/tests/tests-2/02_HandlingRadiobutton.spec.js)
 ```
-asdf
+test('Handling Click actions', async ({page}) => {
+
+    await page.goto('https://testautomationpractice.blogspot.com/');
+
+    // Buttons ---------------------------------------------------------------------------
+
+    // Approach-1
+    await page.locator('(//*[@id="productTable"]//input)[1]').click();
+
+    // Approach-2
+    await page.click('(//*[@id="productTable"]//input)[2]');
+
+
+    // Radio button -------------------------------------------------------------------------
+
+    // Approach-1
+    await page.locator('[id="male"]').check();
+
+    // Approach-2
+    await page.check('[id="female"]');
+
+
+    // Checkboxes -------------------------------------------------------------------------
+
+    // Approach-1
+    await page.locator('[id="sunday"]').check();
+
+    // Approach-2
+    await page.check('[id="monday"]');
+
+    // Unchecking the checkboxes
+    await page.uncheck('[id="monday"]');
+
+})
 ```
