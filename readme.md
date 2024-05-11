@@ -218,7 +218,7 @@ async function waitForAjaxToComplete(page) {
 
 ## Increase Test Timeout
 
-### Approach 1
+### 1. Approach 1
 ```
 test('Increase Test Timeout - Approach 1', async ({page}) => {
 
@@ -229,7 +229,7 @@ test('Increase Test Timeout - Approach 1', async ({page}) => {
 })
 ```
 
-### Approach 2
+### 2. Approach 2
 ```
 test('Increase Test Timeout - Approach 2', async ({page}, testInfo) => {
 
