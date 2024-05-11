@@ -342,17 +342,15 @@ test('Printing table data as [][]', async ({page}) => {
     console.log(tableData);
 })
 ```
+##### Output
 ```
-output
-[
-  [ 'BookName', 'Author', 'Subject', 'Price' ],
-  [ 'Learn Selenium', 'Amit', 'Selenium', '300' ],
-  [ 'Learn Java', 'Mukesh', 'Java', '500' ],
-  [ 'Learn JS', 'Animesh', 'Javascript', '300' ],
-  [ 'Master In Selenium', 'Mukesh', 'Selenium', '3000' ],
-  [ 'Master In Java', 'Amod', 'JAVA', '2000' ],
-  [ 'Master In JS', 'Amit', 'Javascript', '1000' ]
-]
+BookName                Author      Subject         Price
+Learn Selenium          Amit        Selenium        300
+Learn Java              Mukesh      Java            500
+Learn JS                Animesh     Javascript      300
+Master In Selenium      Mukesh      Selenium        3000
+Master In Java          Amod        JAVA            2000
+Master In JS            Amit        Javascript      1000
 ```
 
 #### ii. Printing table data as []{}
