@@ -352,7 +352,73 @@ Master In JS            Amit        Javascript      1000
 
 #### ii. Printing table data as []{}
 ```
+test('Printing table data as []{}', async ({page}) => {
 
+    await page.goto('https://testautomationpractice.blogspot.com/');
+
+    let webTable = page.locator('[name="BookTable"]');
+
+    let tableRow = webTable.locator('tr');
+    let tableHeaderRow = tableRow.filter({has: page.locator('th')});
+    let tableDataRow = tableRow.filter({has: page.locator('td')});
+
+    let tableData = [];
+    for (let i=0; i<await tableDataRow.count(); i++) {
+        let rowData = {};
+        for (let j=0; j<await tableDataRow.nth(i).locator('td').count(); j++) {
+            
+            let key = await tableHeaderRow.locator('th').nth(j).textContent();
+            let value = await tableDataRow.nth(i).locator('td').nth(j).textContent();
+
+            rowData[key] = value;
+            
+        }
+        tableData.push(rowData);
+    }
+
+    console.log(tableData);
+})
+```
+##### Output
+```
+[
+  {
+    BookName: 'Learn Selenium',
+    Author: 'Amit',
+    Subject: 'Selenium',
+    Price: '300'
+  },
+  {
+    BookName: 'Learn Java',
+    Author: 'Mukesh',
+    Subject: 'Java',
+    Price: '500'
+  },
+  {
+    BookName: 'Learn JS',
+    Author: 'Animesh',
+    Subject: 'Javascript',
+    Price: '300'
+  },
+  {
+    BookName: 'Master In Selenium',
+    Author: 'Mukesh',
+    Subject: 'Selenium',
+    Price: '3000'
+  },
+  {
+    BookName: 'Master In Java',
+    Author: 'Amod',
+    Subject: 'JAVA',
+    Price: '2000'
+  },
+  {
+    BookName: 'Master In JS',
+    Author: 'Amit',
+    Subject: 'Javascript',
+    Price: '1000'
+  }
+]
 ```
 
 ### 10. HandlingMouseHoverActions
