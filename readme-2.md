@@ -1,4 +1,4 @@
-## Handling web elements [view more](https://github.com/sachinknsachi/Playwright-tutorials/tree/master/tests/tests-2)
+## Handling web elements. [Click here for more](https://github.com/sachinknsachi/Playwright-tutorials/tree/master/tests/tests-2)
 
 ### 1. Handling Input fields.
 ```
