@@ -287,7 +287,7 @@ test('To interact with the inner frame', async ({page}) => {
     // using frameLocator()
     let allInnerFrames = page.frame({url: /.*frame_3.html/}).childFrames();
 
-    await allInnerFrames[0].click('(//div[@role="listitem"])[1]//span[@role="presentation"]//label[normalize-space()="Other:"]');
+    await allInnerFrames[0].click('(//div[@role="listitem"])[1]//span[@role="presentation"]//label[.="Other:"]');
     await allInnerFrames[0].fill('(//div[@role="listitem"])[1]//span[@role="presentation"]//input', "Hello I'm Sachi");
 
     await allInnerFrames[0].waitForTimeout(5000);
