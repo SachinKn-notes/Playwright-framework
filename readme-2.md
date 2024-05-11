@@ -101,3 +101,26 @@ test('Handling Dropdowns', async ({page}) => {
 
 })
 ```
+
+### 4. Handling ------
+```
+
+```
+
+### 5. Handling ------
+```
+
+```
+
+### 6. Handling ------
+```
+
+```
+### 7. Handling ------
+```
+
+```
+### 8. Handling ------
+```
+
+```
