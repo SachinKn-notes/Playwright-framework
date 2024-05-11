@@ -119,18 +119,7 @@ test('Handling Multi Select Dropdown', async ({page}) => {
 })
 ```
 
-### 5. Move to element.
-```
-test('Move to element', async ({page}) => {
-
-    await page.goto('https://testautomationpractice.blogspot.com');
-
-    await page.hover('#colors');
-
-})
-```
-
-### 6. Handling Dialogs/Alert popups.
+### 5. Handling Dialogs/Alert popups.
 
 #### i. Alert with ok.
 ```
@@ -231,7 +220,7 @@ test('Alert with prompt', async ({page}) => {
 })
 ```
 
-### 7. Handling Frames.
+### 6. Handling Frames.
 
 #### i. To get the frames count
 ```
@@ -295,7 +284,7 @@ test('To interact with the inner frame', async ({page}) => {
 })
 ```
 
-### 8. Elements.filter() - filtering the located elements.
+### 7. Elements.filter() - filtering the located elements.
 ```
 test('Elements.filter()', async ({page}) => {
 
@@ -319,7 +308,7 @@ test('Elements.filter()', async ({page}) => {
 })
 ```
 
-### 9. Handling web table
+### 8. Handling web table
 
 #### i. Printing web table data
 ```
@@ -421,22 +410,28 @@ test('Printing table data as []{}', async ({page}) => {
 ]
 ```
 
-### 10. HandlingMouseHoverActions
+### 9. Move to element / Mouse Hover
+```
+test('Move to element', async ({page}) => {
+
+    await page.goto('https://testautomationpractice.blogspot.com');
+
+    await page.hover('#colors');
+
+})
+```
+
+### 10. Mouse Actions
 ```
 
 ```
 
-### 11. HandlingKeyboardActions.spec
+### 11. Handling Keyboard Actions
 ```
 
 ```
 
 ### 12. HandlingUploadFiles
-```
-
-```
-
-### 13. Abcdefg
 ```
 
 ```
