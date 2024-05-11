@@ -112,7 +112,8 @@ test('Home test', async ({page}) => {
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/8f924cca-a52e-4e1f-82f3-e4bb6ec3f136" width="700">
 
 ## Assertions
-### Positive assertions
+
+### 1. Positive assertions
 - await expect(page).**toHaveTitle**('--title');
 - await expect(page).**toHaveURL**('--url');
   
@@ -145,7 +146,8 @@ await multiSelectDdLocator .selectOption(['R', 'G']);
 
 const multiSelectDdOptionsLocator = page.locator('[id=favorite-colors] option');
 * await expect(multiSelectDdOptionsLocator).**toHaveCount**(3);
-### Negative Assertions
+
+### 2. Negative Assertions
 - await expect(page).**not**.**toHaveTitle**('--title');
 - await expect(page).**not**.**toHaveURL**('--url');
 
@@ -156,3 +158,53 @@ const multiSelectDdOptionsLocator = page.locator('[id=favorite-colors] option');
   
 - expect(page).**not**.**toHave**--();
 - etc...
+
+## Waits
+
+### 1. To wait for a locator
+await page.waitForSelector('[data-ody-id="AdvanceSearchLink"]');
+
+### 2. waitForDocumentToGetReady()
+#### Selenium
+```
+public void waitForDocumentToGetReady() {
+    new WebDriverWait(webDriver, 60).until((ExpectedCondition<Boolean>) wd -> ((JavascriptExecutor) wd)
+        .executeScript("return document.readyState").equals("complete"));
+}
+```
+#### Playwright
+```
+async function waitForDocumentToGetReady(page) {
+    await page.waitForLoadState('networkidle', { timeout: 60000 });
+}
+```
+
+### 3. waitForAjaxToComplete()
+#### Selenium
+```
+public void waitForAjaxToComplete() {
+	waitForDocumentToGetReady();
+	new WebDriverWait(webDriver, 120).until((ExpectedCondition<Boolean>) driver -> {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		if ((Boolean) js.executeScript("return !!window.jQuery")) {
+			return (Boolean) js.executeScript("return jQuery.active == 0");
+		} else {
+			LoggerUtils.logInfo("Jquery is not loaded for " + getCurrentURL());
+			return true;
+		}
+	});
+}
+```
+#### Playwright
+```
+async function waitForAjaxToComplete(page) {
+    await page.waitForFunction(() => {
+        if (window.jQuery) {
+            return jQuery.active === 0;
+        } else {
+            console.log("jQuery is not loaded for " + window.location.href);
+            return true;
+        }
+    }, { timeout: 120000 });
+}
+```
