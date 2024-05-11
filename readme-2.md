@@ -641,3 +641,46 @@ test('Element Screenshot', async ({page}) => {
 
 ### 15. Trace Viewer
 ![image](https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/dc252d60-c762-4196-b434-861cd13b5de9)
+
+### 16. Tags
+
+#### I. Script
+```
+const {test, expect} = require('@playwright/test');
+
+test('Test_1 @sanity', async () => {
+    console.log('Test_1');
+})
+
+test('Test_2 @sanity', async () => {
+    console.log('Test_2');
+})
+
+test('Test_3 @reg', async () => {
+    console.log('Test_3');
+})
+
+test('Test_4 @reg', async () => {
+    console.log('Test_4');
+})
+
+test('Test_5 @sanity @reg', async () => {
+    console.log('Test_5');
+})
+```
+
+#### II. To run only @sanity
+```
+npx playwright test 05_Tags --project=chromium --grep '@sanity'
+```
+
+#### III. To run only @reg
+```
+npx playwright test 05_Tags --project=chromium --grep '@reg'
+```
+
+#### III. To run only @sanity but not @reg
+```
+npx playwright test 05_Tags --project=chromium --grep '@sanity' --grep-invert '@reg'
+```
+
