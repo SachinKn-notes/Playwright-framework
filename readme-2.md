@@ -606,3 +606,32 @@ test('Upload Files - Remove uploaded file', async ({page}) => {
 
 })
 ```
+
+### 13. Capture Screenshots
+
+#### I. Page Screenshot
+```
+test('Page Screenshot', async ({page}) => {
+    await page.goto('https://testautomationpractice.blogspot.com');
+
+    await page.screenshot({path: 'tests/screenshots/HomePage_' + Date.now() + '.png'});
+})
+```
+
+#### II. Full Page Screenshot
+```
+test('Full Page Screenshot', async ({page}) => {
+    await page.goto('https://testautomationpractice.blogspot.com');
+
+    await page.screenshot({path: 'tests/screenshots/FullPage_' + Date.now() + '.png', fullPage: true});
+})
+```
+
+#### III. Element Screenshot
+```
+test('Element Screenshot', async ({page}) => {
+    await page.goto('https://testautomationpractice.blogspot.com');
+
+    await page.locator('[name="BookTable"]').screenshot({path: 'tests/screenshots/Element_' + Date.now() + '.png'});
+})
+```
