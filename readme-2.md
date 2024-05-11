@@ -1,6 +1,6 @@
-## Handling web elements
+## Handling web elements [view more](https://github.com/sachinknsachi/Playwright-tutorials/tree/master/tests/tests-2)
 
-### 1. Handling Input fields. [Text field](https://github.com/sachinknsachi/Playwright-tutorials/blob/master/tests/tests-2/01_HandlingInputField.spec.js)
+### 1. Handling Input fields.
 ```
 test('Handling Text field', async ({page}) => {
 
@@ -21,7 +21,7 @@ test('Handling Text field', async ({page}) => {
 })
 ```
 
-### 2. Handling Click actions. [Radio buttons](https://github.com/sachinknsachi/Playwright-tutorials/blob/master/tests/tests-2/02_HandlingRadiobutton.spec.js), [Checkboxes](https://github.com/sachinknsachi/Playwright-tutorials/blob/master/tests/tests-2/02_HandlingRadiobutton.spec.js)
+### 2. Handling Click actions.
 ```
 test('Handling Click actions', async ({page}) => {
 
