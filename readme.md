@@ -110,3 +110,36 @@ test('Home test', async ({page}) => {
 </details>
 
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/8f924cca-a52e-4e1f-82f3-e4bb6ec3f136" width="700">
+
+## Assertions
+- await expect(page).**toHaveTitle**('--title');
+- await expect(page).**toHaveURL**('--url');
+* await expect(page.locator('--locator')).**toBeVisible**();
+* await expect(page.locator('--locator')).**toBeEnabled**();
+* await expect(page.locator('--locator')).**toBeDisabled**();
+* await expect(page.locator('--locator')).**toBeChecked**();
+  
+- await expect(page.locator('--locator')).**toHaveAttribute**('name', 'modifySearch');
+- await expect(page.locator('--locator')).**toHaveCSS**('background-color', 'rgba(0, 0, 0, 0)');
+- await expect(page.locator('--locator')).**toHaveClass**('btn btn-lg btn-outline-default d-flex align-items-center ng-star-inserted');
+- await expect(--locator).**toHaveId**('lastname');
+- await expect(--locator).**toHaveJSProperty**('loaded', true);
+- await expect(--locator).**toHaveScreenshot**('image.png');
+- await expect(--locator).**toHaveText**('Search');
+- await expect(--locator).**toContainText**('Search');
+- await expect(--locator).**toHaveValue**('Miami');
+
+```
+<select id="favorite-colors" multiple>
+    <option value="R">Red</option>
+    <option value="G">Green</option>
+    <option value="B">Blue</option>
+</select>
+```
+
+const multiSelectDdLocator = page.locator('id=favorite-colors');
+await multiSelectDdLocator .selectOption(['R', 'G']);
+* await expect(multiSelectDdLocator ).**toHaveValues**([/R/, /G/]);
+
+const multiSelectDdOptionsLocator = page.locator('[id=favorite-colors] option');
+* await expect(multiSelectDdOptionsLocator).**toHaveCount**(3);
