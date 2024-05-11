@@ -164,7 +164,7 @@ test('Alert with ok', async ({page}) => {
 
 #### ii. Alert with confirmation.
 ```
-test.skip('Alert with confirmation', async ({page}) => {
+test('Alert with confirmation', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com');
 
@@ -198,7 +198,7 @@ test.skip('Alert with confirmation', async ({page}) => {
 
 #### iii. Alert with prompt.
 ```
-test.skip('Alert with prompt', async ({page}) => {
+test('Alert with prompt', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com');
 
@@ -248,7 +248,7 @@ test('To get the frames count', async ({page}) => {
 
 #### ii. To interact with the frame using url
 ```
-test.skip('To interact with the frame using url', async ({page}) => {
+test('To interact with the frame using url', async ({page}) => {
 
     await page.goto('https://ui.vision/demo/webtest/frames/');
 
@@ -264,7 +264,7 @@ test.skip('To interact with the frame using url', async ({page}) => {
 
 #### iii. To interact with the frame using frame locator
 ```
-test.skip('To interact with the frame using frame locator', async ({page}) => {
+test('To interact with the frame using frame locator', async ({page}) => {
 
     await page.goto('https://ui.vision/demo/webtest/frames/');
 
@@ -280,7 +280,7 @@ test.skip('To interact with the frame using frame locator', async ({page}) => {
 
 #### iiii. To interact with the inner frame
 ```
-test.skip('To interact with the inner frame', async ({page}) => {
+test('To interact with the inner frame', async ({page}) => {
 
     await page.goto('https://ui.vision/demo/webtest/frames/');
 
