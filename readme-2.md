@@ -319,32 +319,35 @@ test('Elements.filter()', async ({page}) => {
 })
 ```
 
-### 1000. Abcdefg
+### 9. Handling web table
+
+#### i. Printing table data as [][]
 ```
 
 ```
 
-### 1000. Abcdefg
+#### ii. Printing table data as []{}
 ```
 
 ```
 
-### 1000. Abcdefg
+### 10. HandlingMouseHoverActions
 ```
 
 ```
 
-### 1000. Abcdefg
+### 11. HandlingKeyboardActions.spec
 ```
 
 ```
 
-### 1000. Abcdefg
+### 12. HandlingUploadFiles
 ```
 
 ```
 
-### 1000. Abcdefg
+### 13. Abcdefg
 ```
 
 ```
+
