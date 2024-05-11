@@ -131,7 +131,8 @@ test('Move to element', async ({page}) => {
 ```
 
 ### 6. Handling Dialogs/Alert popups.
-#### i. Alert with ok
+
+#### i. Alert with ok.
 ```
 test('Alert with ok', async ({page}) => {
 
@@ -160,7 +161,8 @@ test('Alert with ok', async ({page}) => {
 
 })
 ```
-#### ii. Alert with confirmation
+
+#### ii. Alert with confirmation.
 ```
 test.skip('Alert with confirmation', async ({page}) => {
 
@@ -193,7 +195,8 @@ test.skip('Alert with confirmation', async ({page}) => {
 
 })
 ```
-#### iii. Alert with prompt
+
+#### iii. Alert with prompt.
 ```
 test.skip('Alert with prompt', async ({page}) => {
 
@@ -228,11 +231,31 @@ test.skip('Alert with prompt', async ({page}) => {
 })
 ```
 
-### 7. Handling ------
+### 7. Handling Frames.
+
+#### i. To get the frames count
 ```
 
 ```
+
+#### ii. To get the frames count
+```
+
+```
+
+#### ii. To get the frames count
+```
+
+```
+
+#### iii. To get the frames count
+```
+
+```
+
 ### 8. Handling ------
 ```
 
 ```
+
+# 1. asdfg
