@@ -321,25 +321,22 @@ test('Elements.filter()', async ({page}) => {
 
 ### 9. Handling web table
 
-#### i. Printing table data as [][]
+#### i. Printing web table data
 ```
-test('Printing table data as [][]', async ({page}) => {
+test('Printing web table', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com/');
 
     let webTable = page.locator('[name="BookTable"]');
     let tableRow = webTable.locator('tr');
 
-    let tableData = [];
     for (let i=0; i<await tableRow.count(); i++) {
         let rowData = [];
         for (let j=0; j<await tableRow.nth(i).locator('th,td').count(); j++) {
             rowData.push(await tableRow.nth(i).locator('th,td').nth(j).textContent());
         }
-        tableData.push(rowData);
+        console.log(rowData.join('\t'));
     }
-
-    console.log(tableData);
 })
 ```
 ##### Output
