@@ -220,7 +220,7 @@ async function waitForAjaxToComplete(page) {
 
 ### Approach 1
 ```
-test('Before Eaach and After Each', async ({page}) => {
+test('Increase Test Timeout - Approach 1', async ({page}) => {
 
     // Increaase test timeout - Approach 1
     test.setTimeout(60000);
@@ -231,7 +231,7 @@ test('Before Eaach and After Each', async ({page}) => {
 
 ### Approach 2
 ```
-test('Before Eaach and After Each', async ({page}, testInfo) => {
+test('Increase Test Timeout - Approach 2', async ({page}, testInfo) => {
 
     // Increaase test timeout - Approach 2
     test.setTimeout(testInfo.timeout+10000);
