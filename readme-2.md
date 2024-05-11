@@ -638,3 +638,6 @@ test('Element Screenshot', async ({page}) => {
 
 ### 14. Record video
 ![image](https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/e9cb3a89-85e2-4c6f-8a14-f4d86eb42adf)
+
+### 15. Trace Viewer
+![image](https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/dc252d60-c762-4196-b434-861cd13b5de9)
