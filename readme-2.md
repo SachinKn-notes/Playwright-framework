@@ -222,7 +222,7 @@ test('Alert with prompt', async ({page}) => {
 
 ### 6. Handling Frames.
 
-#### i. To get the frames count
+#### i. To get the frames count.
 ```
 test('To get the frames count', async ({page}) => {
 
@@ -235,7 +235,7 @@ test('To get the frames count', async ({page}) => {
 })
 ```
 
-#### ii. To interact with the frame using url
+#### ii. To interact with the frame using url.
 ```
 test('To interact with the frame using url', async ({page}) => {
 
@@ -251,7 +251,7 @@ test('To interact with the frame using url', async ({page}) => {
 })
 ```
 
-#### iii. To interact with the frame using frame locator
+#### iii. To interact with the frame using frame locator.
 ```
 test('To interact with the frame using frame locator', async ({page}) => {
 
@@ -267,7 +267,7 @@ test('To interact with the frame using frame locator', async ({page}) => {
 })
 ```
 
-#### iiii. To interact with the inner frame
+#### iiii. To interact with the inner frame.
 ```
 test('To interact with the inner frame', async ({page}) => {
 
@@ -308,9 +308,9 @@ test('Elements.filter()', async ({page}) => {
 })
 ```
 
-### 8. Handling web table
+### 8. Handling web table.
 
-#### i. Printing web table data
+#### i. Printing web table data.
 ```
 test('Printing web table', async ({page}) => {
 
@@ -328,7 +328,7 @@ test('Printing web table', async ({page}) => {
     }
 })
 ```
-##### Output
+##### Output.
 ```
 BookName                Author      Subject         Price
 Learn Selenium          Amit        Selenium        300
@@ -339,7 +339,7 @@ Master In Java          Amod        JAVA            2000
 Master In JS            Amit        Javascript      1000
 ```
 
-#### ii. Printing table data as []{}
+#### ii. Printing table data as []{}.
 ```
 test('Printing table data as []{}', async ({page}) => {
 
@@ -368,7 +368,7 @@ test('Printing table data as []{}', async ({page}) => {
     console.log(tableData);
 })
 ```
-##### Output
+##### Output.
 ```
 [
   {
@@ -410,7 +410,7 @@ test('Printing table data as []{}', async ({page}) => {
 ]
 ```
 
-### 9. Move to element / Mouse Hover
+### 9. Move to element / Mouse Hover.
 ```
 test('Move to element', async ({page}) => {
 
@@ -421,9 +421,67 @@ test('Move to element', async ({page}) => {
 })
 ```
 
-### 10. Mouse Actions
+### 10. Mouse Actions.
+
+#### i. Right click action.
+```
+test('Right click actions', async ({page}) => {
+    await page.goto('https://testautomationpractice.blogspot.com/');
+
+    // Approach-1
+    await page.locator('[id="name"]').click({button: "right"});
+})
 ```
 
+#### ii. Double click action.
+```
+test('Double click actions', async ({page}) => {
+
+    await page.goto('https://testautomationpractice.blogspot.com/');
+
+    // Approach-1
+    await page.locator('button[ondblclick]').dblclick();
+
+    // Assertions
+    expect((await page.locator('#field2').inputValue()).includes('Hello World!')).toBeTruthy();
+    await expect(page.locator('#field2')).toHaveValue('Hello World!');
+})
+```
+
+#### ii. Drag and Drop.
+
+##### Approach-1.
+```
+test('Drag and Drop', async ({page}) => {
+
+    await page.goto('https://testautomationpractice.blogspot.com/');
+
+    let sourceEle = page.locator('#draggable');
+    let targetEle = page.locator('#droppable');
+
+    await sourceEle.dragTo(targetEle);
+
+    await page.waitForTimeout(5000);
+})
+```
+
+##### Approach-2.
+```
+test('Drag and Drop', async ({page}) => {
+
+    await page.goto('https://testautomationpractice.blogspot.com/');
+
+    let sourceEle = page.locator('#draggable');
+    let targetEle = page.locator('#droppable');
+
+    await sourceEle.hover();
+    await page.mouse.down();
+
+    await targetEle.hover();
+    await page.mouse.up();
+
+    await page.waitForTimeout(5000);
+})
 ```
 
 ### 11. Handling Keyboard Actions
