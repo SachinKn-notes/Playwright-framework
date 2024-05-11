@@ -551,8 +551,58 @@ test.skip('clear and type - Approach 4', async ({page}) => {
 })
 ```
 
-### 12. HandlingUploadFiles
+### 12. Handling Upload Files
+
+#### I. Single file.
+```
+test('Upload Files - Single file', async ({page}) => {
+
+    await page.goto('https://davidwalsh.name/demo/multiple-file-upload.php');
+
+    await page.locator('#filesToUpload').setInputFiles('..\\tests\\resources\\Assignment_1.pdf');
+
+    await expect(page.locator('#fileList li:nth-child(1)')).toHaveText('Assignment_1.pdf');
+
+    await page.waitForTimeout(5000);
+
+})
 ```
 
+#### II. Multiple files.
+```
+test.skip('Upload Files - Multiple files', async ({page}) => {
+
+    await page.goto('https://davidwalsh.name/demo/multiple-file-upload.php');
+
+    await page.locator('#filesToUpload').setInputFiles(['..\\tests\\resources\\Assignment_1.pdf', '..\\tests\\resources\\Assignment_2.pdf']);
+
+    await expect(page.locator('#fileList li:nth-child(1)')).toHaveText('Assignment_1.pdf');
+    await expect(page.locator('#fileList li:nth-child(2)')).toHaveText('Assignment_2.pdf');
+
+    await page.waitForTimeout(5000);
+
+})
 ```
 
+#### III. Remove uploaded file.
+```
+test('Upload Files - Remove uploaded file', async ({page}) => {
+
+    await page.goto('https://davidwalsh.name/demo/multiple-file-upload.php');
+
+    await page.locator('#filesToUpload').setInputFiles(['..\\tests\\resources\\Assignment_1.pdf', '..\\tests\\resources\\Assignment_2.pdf']);
+
+    await expect(page.locator('#fileList li:nth-child(1)')).toHaveText('Assignment_1.pdf');
+    await expect(page.locator('#fileList li:nth-child(2)')).toHaveText('Assignment_2.pdf');
+
+    await page.waitForTimeout(3000);
+
+    // To remove the files.
+    await page.locator('#filesToUpload').setInputFiles([]);
+
+    await expect(page.locator('#fileList li:nth-child(1)')).toHaveText('No Files Selected');
+
+    await page.waitForTimeout(5000);
+
+})
+```
