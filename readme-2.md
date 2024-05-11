@@ -295,8 +295,56 @@ test('To interact with the inner frame', async ({page}) => {
 })
 ```
 
-### 8. Handling ------
+### 8. Elements.filter() - filtering the located elements.
+```
+test('Elements.filter()', async ({page}) => {
+
+    await page.goto('https://testautomationpractice.blogspot.com/');
+    
+    let tableRow = page.locator('[id="productTable"] tr');
+
+    /*
+        tableRow locator will match all the rows of a table including header,
+        in that we need to filter which row is having checkbix & name Product-3
+        and we need to click on the check box
+    */
+
+    let filterdTableRow = tableRow.filter({
+        has: page.locator('td'),
+        hasText: 'Product 3'
+    })
+
+    await filterdTableRow.locator('input').click();
+
+})
+```
+
+### 1000. Abcdefg
 ```
 
 ```
 
+### 1000. Abcdefg
+```
+
+```
+
+### 1000. Abcdefg
+```
+
+```
+
+### 1000. Abcdefg
+```
+
+```
+
+### 1000. Abcdefg
+```
+
+```
+
+### 1000. Abcdefg
+```
+
+```
