@@ -323,7 +323,36 @@ test('Elements.filter()', async ({page}) => {
 
 #### i. Printing table data as [][]
 ```
+test('Printing table data as [][]', async ({page}) => {
 
+    await page.goto('https://testautomationpractice.blogspot.com/');
+
+    let webTable = page.locator('[name="BookTable"]');
+    let tableRow = webTable.locator('tr');
+
+    let tableData = [];
+    for (let i=0; i<await tableRow.count(); i++) {
+        let rowData = [];
+        for (let j=0; j<await tableRow.nth(i).locator('th,td').count(); j++) {
+            rowData.push(await tableRow.nth(i).locator('th,td').nth(j).textContent());
+        }
+        tableData.push(rowData);
+    }
+
+    console.log(tableData);
+})
+```
+```
+output
+[
+  [ 'BookName', 'Author', 'Subject', 'Price' ],
+  [ 'Learn Selenium', 'Amit', 'Selenium', '300' ],
+  [ 'Learn Java', 'Mukesh', 'Java', '500' ],
+  [ 'Learn JS', 'Animesh', 'Javascript', '300' ],
+  [ 'Master In Selenium', 'Mukesh', 'Selenium', '3000' ],
+  [ 'Master In Java', 'Amod', 'JAVA', '2000' ],
+  [ 'Master In JS', 'Amit', 'Javascript', '1000' ]
+]
 ```
 
 #### ii. Printing table data as []{}
