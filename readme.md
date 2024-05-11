@@ -112,6 +112,7 @@ test('Home test', async ({page}) => {
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/8f924cca-a52e-4e1f-82f3-e4bb6ec3f136" width="700">
 
 ## Assertions
+### Positive assertions
 - await expect(page).**toHaveTitle**('--title');
 - await expect(page).**toHaveURL**('--url');
 * await expect(page.locator('--locator')).**toBeVisible**();
@@ -143,3 +144,5 @@ await multiSelectDdLocator .selectOption(['R', 'G']);
 
 const multiSelectDdOptionsLocator = page.locator('[id=favorite-colors] option');
 * await expect(multiSelectDdOptionsLocator).**toHaveCount**(3);
+### Negative Assertions
+* expect(page).not.toHave--()
