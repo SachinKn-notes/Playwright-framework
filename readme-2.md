@@ -450,7 +450,7 @@ test('Double click actions', async ({page}) => {
 
 #### ii. Drag and Drop.
 
-##### Approach-1.
+##### Approach 1.
 ```
 test('Drag and Drop', async ({page}) => {
 
@@ -465,7 +465,7 @@ test('Drag and Drop', async ({page}) => {
 })
 ```
 
-##### Approach-2.
+##### Approach 2.
 ```
 test('Drag and Drop', async ({page}) => {
 
@@ -484,9 +484,71 @@ test('Drag and Drop', async ({page}) => {
 })
 ```
 
-### 11. Handling Keyboard Actions
+### 11. Keyboard Actions
+
+#### I. Copy paste text.
+```
+test('Copy paste text', async ({page}) => {
+    await page.goto('https://testautomationpractice.blogspot.com');
+
+    await page.fill('#field1', 'My name is Sachin.');
+
+    await page.press('#field1', 'Control+A');
+    await page.press('#field1', 'Control+C');
+    await page.press('#field2', 'Control+V');
+})
 ```
 
+#### II. clear and type - Approach 1.
+```
+test.skip('clear and type - Approach 1', async ({page}) => {
+    await page.goto('https://testautomationpractice.blogspot.com');
+
+    await page.fill('#field1', 'Hello Bro!');
+})
+```
+
+#### III. clear and type - Approach 2.
+```
+test.skip('clear and type - Approach 2', async ({page}) => {
+    await page.goto('https://testautomationpractice.blogspot.com');
+
+    await page.click('#field1', {clickCount: 3});
+    await page.press('#field1', 'Backspace');
+
+    await page.type('#field1', 'Hello Bro!');
+})
+```
+
+#### IV. clear and type - Approach 3.
+```
+test.skip('clear and type - Approach 3', async ({page}) => {
+    await page.goto('https://testautomationpractice.blogspot.com');
+
+    await page.press('#field1', 'Control+A');
+    await page.press('#field1', 'Backspace');
+
+    await page.type('#field1', 'Hello Bro!');
+})
+```
+
+#### V. clear and type - Approach 4.
+```
+test.skip('clear and type - Approach 4', async ({page}) => {
+    await page.goto('https://testautomationpractice.blogspot.com');
+
+    await page.click('#field1');
+
+    await page.keyboard.down('Control');
+    await page.keyboard.down('A');
+    await page.keyboard.up('A');
+    await page.keyboard.up('Control');
+
+    await page.keyboard.down('Backspace');
+    await page.keyboard.up('Backspace');
+
+    await page.fill('#field1', 'Hello Bro!');
+})
 ```
 
 ### 12. HandlingUploadFiles
