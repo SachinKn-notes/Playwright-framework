@@ -1136,3 +1136,27 @@ output
 180000
 Test-6()
 ```
+
+## Multiple Pages/Tabs
+
+### 1. Browser Context & Creating Multiple pages
+```
+const {test, expect, chromium} = require('@playwright/test');
+
+test('Browser Context & Multiple pages', async () => {
+
+    const browser = await chromium.launch();
+    const context = await browser.newContext();
+
+    const page1 = await context.newPage();
+    const page2 = await context.newPage();
+    
+    console.log('Total number of pages created:', context.pages().length);
+
+})
+```
+
+### 2. Handleing Multiple Pages/Tabs
+```
+
+```
