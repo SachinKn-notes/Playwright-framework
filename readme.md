@@ -1207,3 +1207,11 @@ test('Handleing Multiple Pages/Tabs', async () => {
 #### output.
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b38f89db-2799-4fc6-b890-da149df474b0" width="700">
 
+### 4. Json Report.
+
+#### configuration.
+<img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b111b831-faf7-40fb-83b9-3a7df6f96adb" width="700">
+
+#### output.
+<img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/5df5373d-c379-48ef-80f6-e995dfe2d083" width="700">
+
