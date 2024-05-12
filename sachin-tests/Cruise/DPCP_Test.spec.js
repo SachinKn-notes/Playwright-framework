@@ -1,7 +1,7 @@
 import {test} from '@playwright/test';
-import {LoginModule} from '../../Modules/LoginModule.js';
-import {SiteSelectionModule} from '../../Modules/SiteSelectionModule.js';
-import {SearchModule} from '../../Modules/SearchModule.js';
+import {LoginModule} from '../../sachin-modules/LoginModule.js';
+import {SiteSelectionModule} from '../../sachin-modules/SiteSelectionModule.js';
+import {SearchModule} from '../../sachin-modules/SearchModule.js';
 
 test('Login test - @ODY-1 - @smoke', async ({page}) => {
 
