@@ -1336,7 +1336,7 @@ Running 5 tests using 1 worker
 
 ## API Testing
 
-### GET Request
+### 1. GET Request
 ```
 const {test, expect} = require('@playwright/test');
 
@@ -1358,7 +1358,7 @@ test('Get User', async ({request}) => {
 })
 ```
 
-### POST Request
+### 2. POST Request
 ```
 test('Create User', async ({request}) => {
 
@@ -1386,7 +1386,7 @@ test('Create User', async ({request}) => {
 })
 ```
 
-### PUT Request
+### 3. PUT Request
 ```
 test('Update User', async ({request}) => {
 
@@ -1412,7 +1412,7 @@ test('Update User', async ({request}) => {
 })
 ```
 
-### Delete Request
+### 4. Delete Request
 ```
 test('Delete User', async ({request}) => {
     const response = await request.delete(baseURL + '/api/users/' + userId);
