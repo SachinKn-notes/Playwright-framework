@@ -1184,6 +1184,9 @@ test('Handleing Multiple Pages/Tabs', async () => {
 ## Reporters | List, Dot, Json, JUnit & HTML
 
 ### 1. HTML Report
-```
+#### configuration.
+<img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/7735b4c4-e67a-4924-bade-0e0a182ebd0c" width="700">
 
-```
+#### output.
+<img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/ee93ce1f-84a3-462c-99a4-90694d037073" width="700">
+
