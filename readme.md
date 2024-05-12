@@ -1226,3 +1226,41 @@ test('Handleing Multiple Pages/Tabs', async () => {
 ### 6. All Reports.
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/ac8b5c16-5257-4eef-ae1a-823198b4c712" width="700">
 
+## Reporters | Allure Report.
+
+### 1. Execute below command to install allure-playwright (It is used to generate allure report files).
+```
+npm i -D @playwright/test allure-playwright
+```
+
+### 2. Execute below command to install allure-commandline (It is used to generate & open allure report).
+```
+npm install -g allure-commandline --save-dev
+```
+
+### 3. Add allure-playwright into playwright.config.js
+```
+{
+  reporter: "allure-playwright";
+}
+```
+```
+{
+  reporter: [["line"], ["allure-playwright"]];
+}
+```
+```
+{
+  reporter: [["line"], ["allure-playwright", {outputFolder: 'my-allure-results'}]];
+}
+```
+
+### 4. Generate Allure Report.
+```
+allure generate my-allure-results -o allure-report --clean
+```
+
+### 5. Open Allure Report.
+```
+allure open allure-report
+```
