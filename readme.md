@@ -1238,7 +1238,7 @@ npm i -D @playwright/test allure-playwright
 npm install -g allure-commandline --save-dev
 ```
 
-### 3. Add allure-playwright into playwright.config.js
+### 3. Add allure-playwright into *playwright.config.js*
 ```
 {
   reporter: "allure-playwright";
