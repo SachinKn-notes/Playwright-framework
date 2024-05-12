@@ -1306,7 +1306,7 @@ test('Test-5', async () => {
 })
 ```
 
-#### Configuration.
+#### Configuration in *playwright.config.js*
 ```
 {
     // retries: process.env.CI ? 2 : 0,
