@@ -29,6 +29,8 @@ test('Login test - @ODY-1 - @smoke', async ({page}) => {
     await searchModule.selectSailingDates();
     await searchModule.selectCruiseline();
     await searchModule.clickSearchButton();
+
+    // Results Page actions
     await searchModule.clickBookButton();
 
     await page.waitForTimeout(20000);
