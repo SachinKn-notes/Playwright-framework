@@ -1335,14 +1335,15 @@ Running 5 tests using 1 worker
 ```
 
 ## API Testing
+
+### GET Request
 ```
 const {test, expect} = require('@playwright/test');
 
 const baseURL = 'https://reqres.in';
-
 let userId;
 
-test.skip('Get User', async ({request}) => {
+test('Get User', async ({request}) => {
     const response = await request.get(baseURL + '/api/users?page=2');
 
     expect(response.status()).toBe(200);
@@ -1355,7 +1356,10 @@ test.skip('Get User', async ({request}) => {
     expect(jsonResponse.data[0].email).toBe('michael.lawson@reqres.in');
 
 })
+```
 
+### POST Request
+```
 test('Create User', async ({request}) => {
 
     const response = await request.post(baseURL + '/api/users', {
@@ -1380,8 +1384,11 @@ test('Create User', async ({request}) => {
     userId = jsonResponse.id;
 
 })
+```
 
-test.skip('Update User', async ({request}) => {
+### PUT Request
+```
+test('Update User', async ({request}) => {
 
     const response = await request.put(baseURL + '/api/users/' + userId, {
         data: {
@@ -1403,7 +1410,10 @@ test.skip('Update User', async ({request}) => {
     expect(jsonResponse.job).toBe('Developer');
 
 })
+```
 
+### Delete Request
+```
 test('Delete User', async ({request}) => {
     const response = await request.delete(baseURL + '/api/users/' + userId);
     expect(response.status()).toBe(204);
