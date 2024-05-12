@@ -1215,3 +1215,11 @@ test('Handleing Multiple Pages/Tabs', async () => {
 #### output.
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/5df5373d-c379-48ef-80f6-e995dfe2d083" width="700">
 
+### 5. jUnit Report.
+
+#### configuration.
+<img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/fa8c0cac-9cf1-42d4-80ff-ab9c70b053ac" width="700">
+
+#### output.
+<img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/8227eed0-7f3a-4f9d-850d-e768469ff7f7" width="700">
+
