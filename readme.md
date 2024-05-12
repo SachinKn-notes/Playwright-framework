@@ -1264,3 +1264,72 @@ allure generate my-allure-results -o allure-report --clean
 ```
 allure open allure-report
 ```
+
+## Retry Tests.
+#### Example tests
+```
+const {test} = require('@playwright/test');
+
+test('Test-1', async () => {
+    let random = Math.ceil(Math.random() * 10);
+    console.log(random);
+    if (random === 3 || random === 6 || random === 9)
+        test.fail();
+})
+
+test('Test-2', async () => {
+    let random = Math.ceil(Math.random() * 10);
+    console.log(random);
+    if (random === 3 || random === 6 || random === 9)
+        test.fail();
+})
+
+test('Test-3', async () => {
+    let random = Math.ceil(Math.random() * 10);
+    console.log(random);
+    if (random === 3 || random === 6 || random === 9)
+        test.fail();
+})
+
+test('Test-4', async () => {
+    let random = Math.ceil(Math.random() * 10);
+    console.log(random);
+    if (random === 3 || random === 6 || random === 9)
+        test.fail();
+})
+
+test('Test-5', async () => {
+    let random = Math.ceil(Math.random() * 10);
+    console.log(random);
+    if (random === 3 || random === 6 || random === 9)
+        test.fail();
+})
+```
+
+#### Configuration.
+```
+{
+    // retries: process.env.CI ? 2 : 0,
+    retries: 1, // Retries 1 time.
+}
+```
+
+#### Output.
+```
+PS D:\Work\Git\Playwright-tutorials> npx playwright test 09_RetryTests --project=chromium --headed
+
+Running 5 tests using 1 worker
+[chromium] › Practice\tests-3\09_RetryTests.spec.js:4:1 › Test-1
+3
+8
+[chromium] › Practice\tests-3\09_RetryTests.spec.js:11:1 › Test-2
+1
+[chromium] › Practice\tests-3\09_RetryTests.spec.js:18:1 › Test-3
+6
+4
+[chromium] › Practice\tests-3\09_RetryTests.spec.js:25:1 › Test-4
+4
+[chromium] › Practice\tests-3\09_RetryTests.spec.js:32:1 › Test-5
+1
+  5 passed (2.9s)
+```
