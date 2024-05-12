@@ -1223,3 +1223,6 @@ test('Handleing Multiple Pages/Tabs', async () => {
 #### output.
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/8227eed0-7f3a-4f9d-850d-e768469ff7f7" width="700">
 
+### 6. All Reports.
+<img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/ac8b5c16-5257-4eef-ae1a-823198b4c712" width="700">
+
