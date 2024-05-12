@@ -5,6 +5,7 @@ test('Test-1', async () => {
 })
 
 test('Test-2', async () => {
+    test.fail();
 })
 
 test('Test-3', async () => {
