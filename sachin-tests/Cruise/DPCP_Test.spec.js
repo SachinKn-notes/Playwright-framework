@@ -1,18 +1,10 @@
-import {test} from '@playwright/test';
-import {LoginModule} from '../../sachin-modules/LoginModule.js';
-import {SiteSelectionModule} from '../../sachin-modules/SiteSelectionModule.js';
-import {SearchModule} from '../../sachin-modules/SearchModule.js';
+import {test} from '../../sachin-hub/BaseTest';
 
-test('Login test - @ODY-1 - @smoke', async ({page}) => {
+test('Login test - @ODY-1 - @smoke', async ({page, loginModule, siteSelectionModule, searchModule}) => {
 
     test.setTimeout(480000);
 
     const siid = '130386';
-
-    // Objects
-    const loginModule = new LoginModule(page);
-    const siteSelectionModule = new SiteSelectionModule(page);
-    const searchModule = new SearchModule(page);
 
     // Login Page actions
     await loginModule.waitForPageToLoad();
