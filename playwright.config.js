@@ -1,6 +1,9 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
 
+// To configure .env file
+require('dotenv').config();
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
