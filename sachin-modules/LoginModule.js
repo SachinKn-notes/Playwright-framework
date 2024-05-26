@@ -25,7 +25,7 @@ export class LoginModule {
     }
 
     async openUrl() {
-        await this.page.goto('https://uat.odysol.com/admin/login.aspx');
+        await this.page.goto('/admin/login.aspx');
     }
 
     async login() {

@@ -34,7 +34,7 @@ exports.SearchModule = class SearchModule {
     }
 
     async openSearchPage(siid) {
-        await this.page.goto('https://uat.odysol.com/swift/cruise?siid=' + siid);
+        await this.page.goto('/swift/cruise?siid=' + siid);
     }
 
     async selectSailingDates() {
