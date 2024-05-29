@@ -29,8 +29,8 @@ export class LoginModule {
     }
 
     async login() {
-        await this.page.fill(this.usernameTextfield, 'QA AUTO2');
-        await this.page.fill(this.passwordTextfield, 'Auto@Mar2024');
+        await this.page.fill(this.usernameTextfield, 'username');
+        await this.page.fill(this.passwordTextfield, 'password');
         await this.page.click(this.loginButton);
     }
 
