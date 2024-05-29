@@ -26,7 +26,13 @@
 - getText() -> String
 
 ```
-@Test
+package test_1;
+
+import org.testng.annotations.Test;
+
+public class Test_1 {
+	
+    @Test
     void Test_1() {
         
         
@@ -43,4 +49,5 @@
         
         
     }
+}
 ```
