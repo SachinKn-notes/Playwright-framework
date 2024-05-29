@@ -24,3 +24,23 @@
 - getAttibute() -> String
 - getTagName() -> String
 - getText() -> String
+
+```
+@Test
+    void Test_1() {
+        
+        
+    }
+    
+    @Test
+    void Test_2() {
+        
+        
+    }
+    
+    @Test
+    void Test_3() {
+        
+        
+    }
+```
