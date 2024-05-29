@@ -1,5 +1,5 @@
 # Selenium Notes
-## 1. WebDriver into.
+## 1. WebDriver Interface.
 ### WebDriver Methods
 - driver.get()
 - driver.close()
@@ -15,3 +15,12 @@
 - driver.switchTo()      .window(--windowHandle);
 - driver.getWindowHandle()
 - driver.getWindowHandles()
+
+## 2. WebElement Interface.
+### WebElement Methods.
+- click() -> void
+- clear() -> void
+- sendKeys() -> void
+- getAttibute() -> String
+- getTagName() -> String
+- getText() -> String
