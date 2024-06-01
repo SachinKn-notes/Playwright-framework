@@ -1,36 +1,45 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
-
-// To configure .env file
 require('dotenv').config();
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// require('dotenv').config();
+const screenshotTypes = {
+  'on': 'on',
+  'off': 'off',
+  'only-on-failure': 'only-on-failure'
+}
 
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
+const tracesTypes = {
+  'off': 'off',
+  'on': 'on',
+  'on-first-retry': 'on-first-retry',
+  'on-all-retries': 'on-all-retries',
+  'retain-on-failure': 'retain-on-failure',
+  'retain-on-first-failure': 'retain-on-first-failure'
+}
+
+const videoTypes = {
+  'off': 'off',
+  'on': 'on',
+  'on-first-retry': 'on-first-retry',
+  'retain-on-failure': 'retain-on-failure',
+}
+
 module.exports = defineConfig({
 
-  // Each test time including BeforeEach & AfterEach is set to 2 min
   timeout: 60000,
-
-
   testDir: './sachin-tests',
-  /* Run tests in files in parallel */
-  fullyParallel: true,
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
+  fullyParallel: Boolean(process.env.npm_config_fullyParallel) ? true : false,
+
   forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
 
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-
+  use: {
+    baseURL: process.env.npm_config_baseUrl || 'https://uat.odysol.com',
+    screenshot: screenshotTypes[process.env.npm_config_screenshot]  || 'only-on-failure',
+    video: videoTypes[process.env.npm_config_video] || 'on-all-retries',
+    trace: tracesTypes[process.env.npm_config_trace]  || 'retain-on-failure'
+  },
 
   // reporter: 'html',
   // reporter: 'list',
@@ -48,67 +57,61 @@ module.exports = defineConfig({
 
   reporter: [["line"], ["allure-playwright", {outputFolder: 'my-allure-results'}]],
 
-
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-  use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'https://uat.odysol.com',
-
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
-    screenshot: 'on',
-    video: 'on'
-  },
-
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
       use: { 
         ...devices['Desktop Chrome'],
-        // launchOptions: {
-        //   args: ["--start-maximized"]
-        // }
+        headed: true,
       },
     },
 
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
+    {
+      name: 'firefox',
+      use: {
+        ...devices['Desktop Firefox']
+      },
+    },
 
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
+    {
+      name: 'webkit',
+      use: {
+        ...devices['Desktop Safari']
+      },
+    },
 
     /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
+    {
+      name: 'Mobile Chrome',
+      use: {
+        ...devices['Pixel 5']
+      },
+    },
+    {
+      name: 'Mobile Safari',
+      use: {
+        ...devices['iPhone 12']
+      },
+    },
 
     /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
+    {
+      name: 'Edge',
+      use: {
+        ...devices['Desktop Edge'],
+        channel: 'msedge'
+      },
+    },
+    {
+      name: 'Chrome',
+      use: {
+        ...devices['Desktop Chrome'],
+        channel: 'chrome',
+        headed: true,
+      },
+    },
   ],
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://127.0.0.1:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
 
   globalSetup: require.resolve('./global-setup'),
   globalTeardown: require.resolve('./global-teardown'),
