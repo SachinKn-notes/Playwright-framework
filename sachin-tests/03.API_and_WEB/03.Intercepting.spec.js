@@ -11,7 +11,7 @@ test('Intercepting - Manipulating the response', async ({page}) => {
     await page.goto('https://rahulshettyacademy.com/client');
 
     // get the response and manipulate
-    await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/665acfb1ae2afd4c0bed315c', route => {
+    await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*', route => {
         const response = page.request.fetch(route.request());
         route.fulfill({
             response,
@@ -20,6 +20,7 @@ test('Intercepting - Manipulating the response', async ({page}) => {
     });
 
     await page.click('//button[contains(.,"ORDERS")]');
+    // await page.waitForResponse('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*');
 
     await page.pause();
 })
