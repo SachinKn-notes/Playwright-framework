@@ -34,6 +34,7 @@ test('Api and Web mix testing-1', async ({browser}) => {
     expect(ordersList).not.toHaveLength(2);
     expect(ordersList).not.toEqual(expect.arrayContaining(["6581cade9fd99c85e8ee7ff5", "6581ca979fd99c85e8ee7faf"]));
 
+    await page.pause();
 })
 
 test('Api and Web mix testing-2', async ({browser}) => {
@@ -55,4 +56,5 @@ test('Api and Web mix testing-2', async ({browser}) => {
     expect(ordersList).not.toHaveLength(2);
     expect(ordersList).not.toEqual(expect.arrayContaining(["6581cade9fd99c85e8ee7ff5", "6581ca979fd99c85e8ee7faf"]));
 
+    await page.pause();
 })
