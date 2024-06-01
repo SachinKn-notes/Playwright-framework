@@ -1,21 +1,29 @@
 {
   "name": "playwright",
   "version": "1.0.0",
-  "description": "",
+  "description": "1. **npm init playwright@latest** -->  To install playwright\r 2. **npx playwright test** --> Runs the end-to-end tests.\r 3. **npx playwright test --ui** --> Starts the interactive UI mode.\r 4. **npx playwright test --project=chromium** --> Runs the tests only on Desktop Chrome.\r 5. **npx playwright test --headed** --> Runs the tests in headed mode.\r 6. **npx playwright test example** --> Runs the tests in a specific file.\r 7. **npx playwright test --debug** --> Runs the tests in debug mode.\r 8. **npx playwright codegen** --> Auto generate tests with Codegen.\r 9. **npx playwright show-report** --> To see report.\r 10. **npx playwright test uat\\homePageTest.spec.js** --> To run only specific module tests\r 11. **npx playwright test uat\\homePageTest** --> To run only specific module tests",
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test DPCP_Test --project=chrome"
   },
   "keywords": [],
-  "author": "",
+  "author": "SachinKn",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.44.0",
+    "@playwright/test": "^1.44.1",
     "@types/node": "^20.12.2",
     "allure-playwright": "^2.15.1"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
     "ini": "^4.1.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sachinknsachi/Playwright-tutorials.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sachinknsachi/Playwright-tutorials/issues"
+  },
+  "homepage": "https://github.com/sachinknsachi/Playwright-tutorials#readme"
 }
