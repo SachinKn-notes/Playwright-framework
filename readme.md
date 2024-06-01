@@ -1419,3 +1419,70 @@ test('Delete User', async ({request}) => {
     expect(response.status()).toBe(204);
 })
 ```
+
+## API Testing - Advanced
+
+### 1. Login using API to bypass the login page.
+```
+const { test } = require("@playwright/test");
+
+test("Login using API to bypass the login page", async ({ request, page }) => {
+
+  // Get the login token using API
+  const response = await request.post(
+    "https://rahulshettyacademy.com/api/ecom/auth/login",
+    {
+      data: {
+        userEmail: "sachinknsachi@gmail.com",
+        userPassword: "Sachin@123",
+      },
+    }
+  );
+  let token = (await response.json()).token;
+
+  
+  // Set the login token into browser
+  await page.addInitScript((value) => {
+    window.localStorage.setItem("token", value);
+  }, token);
+
+
+  // open the home page url, it will open without login.
+  await page.goto("https://rahulshettyacademy.com/client");
+
+  await page.pause();
+});
+```
+
+### 2. Use StorageState using API to bypass the login page.
+```
+const { test } = require("@playwright/test");
+
+test.beforeAll('Get the storage state json file', async ({browser}) => {
+
+    let context = await browser.newContext();
+    let page = await context.newPage();
+
+    await page.goto('https://rahulshettyacademy.com/client');
+
+    await page.fill('#userEmail', 'sachinknsachi@gmail.com');
+    await page.fill('#userPassword', 'Sachin@123');
+    await page.click('[value="Login"]');
+
+    await page.waitForLoadState('networkidle');
+
+    await context.storageState({path: 'state.json'});
+
+})
+
+test("Use StorageState using API to bypass the login page", async ({browser}) => {
+
+    let context = await browser.newContext({storageState: 'state.json'});
+    let page = await context.newPage();
+
+    // open the home page url, it will open without login.
+    await page.goto("https://rahulshettyacademy.com/client");
+
+    await page.pause();
+});
+```
