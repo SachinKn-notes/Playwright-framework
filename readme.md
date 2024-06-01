@@ -1487,7 +1487,7 @@ test("Use StorageState using API to bypass the login page", async ({browser}) =>
 });
 ```
 
-### 3. 03.Intercepting Response.
+### 3. Intercepting Response.
 ```
 const {test, expect} = require('@playwright/test');
 
@@ -1517,7 +1517,7 @@ test('Intercepting - Manipulating the response', async ({page}) => {
 })
 ```
 
-### 3. 03.Intercepting Request.
+### 4. Intercepting Request.
 ```
 const {test, expect} = require('@playwright/test');
 
