@@ -24,3 +24,24 @@ test('Intercepting - Manipulating the response', async ({page}) => {
 
     await page.pause();
 })
+
+test.only('Intercepting - Aborting the response', async ({page}) => {
+
+    // Login and open site
+    await page.addInitScript(value => {
+        window.localStorage.setItem('token', value);
+    }, token);
+
+    // get the aborting the response which contains .jpg inthe request url response
+    await page.route('**/*.jpg', route => {
+        route.abort();
+    });
+    
+    // await page.route('**/*', route => {
+    //     return route.request().resourceType() === 'image' ? route.abort() : route.continue();
+    // });
+
+    await page.goto('https://rahulshettyacademy.com/client');
+
+    await page.pause();
+})
