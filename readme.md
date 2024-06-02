@@ -1487,37 +1487,7 @@ test("Use StorageState using API to bypass the login page", async ({browser}) =>
 });
 ```
 
-### 3. Intercepting Response.
-```
-const {test, expect} = require('@playwright/test');
-
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjVhY2ZiMWFlMmFmZDRjMGJlZDMxNWMiLCJ1c2VyRW1haWwiOiJzYWNoaW5rbnNhY2hpQGdtYWlsLmNvbSIsInVzZXJNb2JpbGUiOjk5MTY0MjM2MjgsInVzZXJSb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MTcyNTQyODMsImV4cCI6MTc0ODgxMTg4M30.9dzH4KFxbCqkwH27j46RaxTPUR784y8SJdQLfr023J4";
-
-test('Intercepting - Manipulating the response', async ({page}) => {
-
-    // Login and open site
-    await page.addInitScript(value => {
-        window.localStorage.setItem('token', value);
-    }, token);
-    await page.goto('https://rahulshettyacademy.com/client');
-
-    // get the response and manipulate
-    await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*', route => {
-        const response = page.request.fetch(route.request());
-        route.fulfill({
-            response,
-            body: '{"data":[],"message":"No Orders"}'
-        })
-    });
-
-    await page.click('//button[contains(.,"ORDERS")]');
-    // await page.waitForResponse('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*');
-
-    await page.pause();
-})
-```
-
-### 4. Intercepting Request.
+### 3. Intercepting Request.
 ```
 const {test, expect} = require('@playwright/test');
 
@@ -1547,3 +1517,60 @@ test('Intercepting - Manipulating the response', async ({page}) => {
 })
 ```
 
+### 4. Intercepting Response - Manipulating the response.
+```
+const {test, expect} = require('@playwright/test');
+
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjVhY2ZiMWFlMmFmZDRjMGJlZDMxNWMiLCJ1c2VyRW1haWwiOiJzYWNoaW5rbnNhY2hpQGdtYWlsLmNvbSIsInVzZXJNb2JpbGUiOjk5MTY0MjM2MjgsInVzZXJSb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MTcyNTQyODMsImV4cCI6MTc0ODgxMTg4M30.9dzH4KFxbCqkwH27j46RaxTPUR784y8SJdQLfr023J4";
+
+test('Intercepting - Manipulating the response', async ({page}) => {
+
+    // Login and open site
+    await page.addInitScript(value => {
+        window.localStorage.setItem('token', value);
+    }, token);
+    await page.goto('https://rahulshettyacademy.com/client');
+
+    // get the response and manipulate
+    await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*', route => {
+        const response = page.request.fetch(route.request());
+        route.fulfill({
+            response,
+            body: '{"data":[],"message":"No Orders"}'
+        })
+    });
+
+    await page.click('//button[contains(.,"ORDERS")]');
+    // await page.waitForResponse('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*');
+
+    await page.pause();
+})
+```
+
+### 5. Intercepting Response - Aborting the response.
+```
+const {test, expect} = require('@playwright/test');
+
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjVhY2ZiMWFlMmFmZDRjMGJlZDMxNWMiLCJ1c2VyRW1haWwiOiJzYWNoaW5rbnNhY2hpQGdtYWlsLmNvbSIsInVzZXJNb2JpbGUiOjk5MTY0MjM2MjgsInVzZXJSb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MTcyNTQyODMsImV4cCI6MTc0ODgxMTg4M30.9dzH4KFxbCqkwH27j46RaxTPUR784y8SJdQLfr023J4";
+
+test.only('Intercepting - Aborting the response', async ({page}) => {
+
+    // Login and open site
+    await page.addInitScript(value => {
+        window.localStorage.setItem('token', value);
+    }, token);
+
+    // get the aborting the response which contains .jpg inthe request url response
+    await page.route('**/*.jpg', route => {
+        route.abort();
+    });
+    
+    // await page.route('**/*', route => {
+    //     return route.request().resourceType() === 'image' ? route.abort() : route.continue();
+    // });
+
+    await page.goto('https://rahulshettyacademy.com/client');
+
+    await page.pause();
+})
+```
