@@ -1,6 +1,4 @@
-const testData = {
+module.exports = {
     name: "Sachin",
     age: 27
 }
-
-module.exports.testData = testData;

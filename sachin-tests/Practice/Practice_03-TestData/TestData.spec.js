@@ -1,10 +1,10 @@
 // .js file
 const testData1 = require('./testData_file.js');
-console.log(testData1.testData);
+console.log(testData1.name);
 
 // .json file
 const testData2 = require('./testData_file.json');
-console.log(testData2);
+console.log(testData2.age);
 
 // .ini file
 const fs = require('fs');
