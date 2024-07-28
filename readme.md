@@ -513,7 +513,7 @@ test('To interact with the frame using frame locator', async ({page}) => {
     // using frameLocator()
     let frame_1 = page.frameLocator('[src="frame_1.html"]');
 
-    await frame_1.fill('[name="mytext1"]', 'Hello');
+    await frame_1.locator('[name="mytext1"]').fill('Hello');
 
     await frame_1.waitForTimeout(5000);
 
@@ -526,7 +526,7 @@ test('To interact with the inner frame', async ({page}) => {
 
     await page.goto('https://ui.vision/demo/webtest/frames/');
 
-    // using frameLocator()
+    // using frame()
     let allInnerFrames = page.frame({url: /.*frame_3.html/}).childFrames();
 
     await allInnerFrames[0].click('(//div[@role="listitem"])[1]//span[@role="presentation"]//label[.="Other:"]');
