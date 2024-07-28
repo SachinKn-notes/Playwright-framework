@@ -262,6 +262,9 @@ test('Handling Text field', async ({page}) => {
 ```
 
 ### 2. Handling Click actions.
+
+<lable color="red">Note:</lable>  
+
 ```
 test('Handling Click actions', async ({page}) => {
 
