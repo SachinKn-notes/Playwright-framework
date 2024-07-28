@@ -271,7 +271,9 @@ test('Handling Text field', async ({page}) => {
 
 ### 2. Handling Click actions.
 
-<span style="color: green"> Some green text </span>
+```
+- Click method will just click on the element, but check will click if it not selected.
+```
 
 ```
 test('Handling Click actions', async ({page}) => {
