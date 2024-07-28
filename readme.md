@@ -138,7 +138,7 @@ test('Home test', async ({page}) => {
 </select>
 ```
 
-const multiSelectDdLocator = page.locator('id=favorite-colors');
+const multiSelectDdLocator = page.locator('id=favorite-colors');          
 await multiSelectDdLocator .selectOption(['R', 'G']);
 * await expect(multiSelectDdLocator ).**toHaveValues**([/R/, /G/]);
 
