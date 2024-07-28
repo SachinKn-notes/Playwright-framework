@@ -18,9 +18,9 @@
 <summary>Code - Click to expand</summary>
 
 ```
-const { chromium } = require('playwright');
+const { chromium, firefox, webkit } = require('playwright');
 
-async function test_1() {
+async function test() {
 
     // Creating browser instanse
     const browser = await chromium.launch({ headless: false });
@@ -36,7 +36,7 @@ async function test_1() {
 
 }
 
-test_1();
+test();
 
 
 To run this execute below command
@@ -46,8 +46,7 @@ To run this execute below command
 
 </details>
 
-<!-- ![image](https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b761ed00-72be-41c7-9471-c1b1c756a795) -->
-<img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b761ed00-72be-41c7-9471-c1b1c756a795" width="700">
+<img src="https://github.com/user-attachments/assets/f2b9ce96-c0b1-49a0-92fe-5edf34f71db9" width="700">
 
 
 ### 2. First Test in Playwright framework - [image link](https://prnt.sc/RfIDMPTYQxq9)
