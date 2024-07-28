@@ -13,7 +13,7 @@
 11. **npx playwright test uat\homePageTest** --> To run only specific module tests
 
 ## Playwright Test Examples
-### 1. Simple Test in Playwright - [image link](https://prnt.sc/HyZdrGhIDUmD)
+### 1. Simple Test in Playwright
 <details>
 <summary>Code - Click to expand</summary>
 
@@ -49,7 +49,7 @@ To run this execute below command
 <img src="https://github.com/user-attachments/assets/f2b9ce96-c0b1-49a0-92fe-5edf34f71db9" width="700">
 
 
-### 2. First Test in Playwright framework - [image link](https://prnt.sc/RfIDMPTYQxq9)
+### 2. Defining playwright test
 <details>
 <summary>Code - Click to expand</summary>
 
