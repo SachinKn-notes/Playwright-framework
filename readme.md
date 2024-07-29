@@ -1439,7 +1439,7 @@ test('Delete User', async ({request}) => {
 ````
 
 ### 1. Login using API to bypass the login page.
-```
+```diff
 const { test } = require("@playwright/test");
 
 test("Login using API to bypass the login page", async ({ request, page }) => {
