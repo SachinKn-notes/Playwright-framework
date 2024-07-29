@@ -1471,7 +1471,7 @@ test("Login using API to bypass the login page", async ({ request, page }) => {
 ```
 
 ### 2. Use StorageState using API to bypass the login page.
-```
+```diff
 const { test } = require("@playwright/test");
 
 test.beforeAll('Get the storage state json file', async ({browser}) => {
@@ -1485,9 +1485,8 @@ test.beforeAll('Get the storage state json file', async ({browser}) => {
     await page.fill('#userPassword', 'Sachin@123');
     await page.click('[value="Login"]');
 
-    await page.waitForLoadState('networkidle');
-
-    await context.storageState({path: 'state.json'});
+-   await page.waitForLoadState('networkidle');
+-   await context.storageState({path: 'state.json'});
 
 })
 
