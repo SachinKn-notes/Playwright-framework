@@ -1471,8 +1471,8 @@ test("Login using API to bypass the login page", async ({ request, page }) => {
 ```
 
 ```diff
-# // Set the login token into browser
-# await page.addInitScript((value) => {
+! // Set the login token into browser
+! await page.addInitScript((value) => {
 #   window.localStorage.setItem("token", value);
 # }, token);
 ```
