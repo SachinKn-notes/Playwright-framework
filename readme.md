@@ -1457,10 +1457,10 @@ test("Login using API to bypass the login page", async ({ request, page }) => {
   let token = (await response.json()).token;
 
   
-# // Set the login token into browser
-# await page.addInitScript((value) => {
-#   window.localStorage.setItem("token", value);
-# }, token);
+- // Set the login token into browser
+- await page.addInitScript((value) => {
+-   window.localStorage.setItem("token", value);
+- }, token);
 
 
   // open the home page url, it will open without login.
@@ -1468,13 +1468,6 @@ test("Login using API to bypass the login page", async ({ request, page }) => {
 
   await page.pause();
 });
-```
-
-```diff
-! // Set the login token into browser
-! await page.addInitScript((value) => {
-#   window.localStorage.setItem("token", value);
-# }, token);
 ```
 
 ### 2. Use StorageState using API to bypass the login page.
