@@ -1492,7 +1492,7 @@ test.beforeAll('Get the storage state json file', async ({browser}) => {
 
 test("Use StorageState using API to bypass the login page", async ({browser}) => {
 
-    let context = await browser.newContext({storageState: 'state.json'});
+-   let context = await browser.newContext({storageState: 'state.json'});
     let page = await context.newPage();
 
     // open the home page url, it will open without login.
