@@ -1434,6 +1434,10 @@ test('Delete User', async ({request}) => {
 
 ## API Testing - Advanced
 
+```diff
++ https://rahulshettyacademy.com/client/auth/login
+````
+
 ### 1. Login using API to bypass the login page.
 ```
 const { test } = require("@playwright/test");
