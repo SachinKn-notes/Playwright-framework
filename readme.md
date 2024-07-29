@@ -1470,6 +1470,13 @@ test("Login using API to bypass the login page", async ({ request, page }) => {
 });
 ```
 
+```diff
+# // Set the login token into browser
+# await page.addInitScript((value) => {
+#   window.localStorage.setItem("token", value);
+# }, token);
+```
+
 ### 2. Use StorageState using API to bypass the login page.
 ```
 const { test } = require("@playwright/test");
