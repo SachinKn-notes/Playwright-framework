@@ -1,3 +1,11 @@
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
+
 # Playwright Notes
 ## Commands
 1. **npm init playwright@latest** -->  To install playwright
@@ -13,14 +21,14 @@
 11. **npx playwright test uat\homePageTest** --> To run only specific module tests
 
 ## Playwright Test Examples
-### 1. Simple Test in Playwright - [image link](https://prnt.sc/HyZdrGhIDUmD)
+### 1. Simple Test in Playwright
 <details>
 <summary>Code - Click to expand</summary>
 
 ```
-const { chromium } = require('playwright');
+const { chromium, firefox, webkit } = require('playwright');
 
-async function test_1() {
+async function test() {
 
     // Creating browser instanse
     const browser = await chromium.launch({ headless: false });
@@ -36,7 +44,7 @@ async function test_1() {
 
 }
 
-test_1();
+test();
 
 
 To run this execute below command
@@ -46,11 +54,10 @@ To run this execute below command
 
 </details>
 
-<!-- ![image](https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b761ed00-72be-41c7-9471-c1b1c756a795) -->
-<img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b761ed00-72be-41c7-9471-c1b1c756a795" width="700">
+<img src="https://github.com/user-attachments/assets/f2b9ce96-c0b1-49a0-92fe-5edf34f71db9" width="700">
 
 
-### 2. First Test in Playwright framework - [image link](https://prnt.sc/RfIDMPTYQxq9)
+### 2. Defining playwright test
 <details>
 <summary>Code - Click to expand</summary>
 
@@ -139,7 +146,7 @@ test('Home test', async ({page}) => {
 </select>
 ```
 
-const multiSelectDdLocator = page.locator('id=favorite-colors');
+const multiSelectDdLocator = page.locator('id=favorite-colors');          
 await multiSelectDdLocator .selectOption(['R', 'G']);
 * await expect(multiSelectDdLocator ).**toHaveValues**([/R/, /G/]);
 
@@ -219,7 +226,7 @@ async function waitForAjaxToComplete(page) {
 
 ### 1. Approach 1
 ```
-test('Increase Test Timeout - Approach 1', async ({page}) => {
+test('Increase Test Timeout - Approach 1', async ({page}, testInfo) => {
 
     // Increaase test timeout - Approach 1
     test.setTimeout(60000);
@@ -263,6 +270,11 @@ test('Handling Text field', async ({page}) => {
 ```
 
 ### 2. Handling Click actions.
+
+```diff
+- Click method will just click on the element, but check will click if it not selected.
+```
+
 ```
 test('Handling Click actions', async ({page}) => {
 
@@ -501,7 +513,7 @@ test('To interact with the frame using frame locator', async ({page}) => {
     // using frameLocator()
     let frame_1 = page.frameLocator('[src="frame_1.html"]');
 
-    await frame_1.fill('[name="mytext1"]', 'Hello');
+    await frame_1.locator('[name="mytext1"]').fill('Hello');
 
     await frame_1.waitForTimeout(5000);
 
@@ -514,7 +526,7 @@ test('To interact with the inner frame', async ({page}) => {
 
     await page.goto('https://ui.vision/demo/webtest/frames/');
 
-    // using frameLocator()
+    // using frame()
     let allInnerFrames = page.frame({url: /.*frame_3.html/}).childFrames();
 
     await allInnerFrames[0].click('(//div[@role="listitem"])[1]//span[@role="presentation"]//label[.="Other:"]');
@@ -923,6 +935,13 @@ npx playwright test 05_Tags --project=chromium --grep '@reg'
 #### iv. To run only @sanity but not @reg
 ```
 npx playwright test 05_Tags --project=chromium --grep '@sanity' --grep-invert '@reg'
+```
+
+## Execute Javascript.
+```
+let value = await page.evaluate(() => {
+	return window.document.querySelector('locator').textContent;
+});
 ```
 
 ## BeforeEach, AfterEach, BeforeAll, AfterAll.
@@ -1422,8 +1441,12 @@ test('Delete User', async ({request}) => {
 
 ## API Testing - Advanced
 
+```diff
++ https://rahulshettyacademy.com/client/auth/login
+````
+
 ### 1. Login using API to bypass the login page.
-```
+```diff
 const { test } = require("@playwright/test");
 
 test("Login using API to bypass the login page", async ({ request, page }) => {
@@ -1441,10 +1464,10 @@ test("Login using API to bypass the login page", async ({ request, page }) => {
   let token = (await response.json()).token;
 
   
-  // Set the login token into browser
-  await page.addInitScript((value) => {
-    window.localStorage.setItem("token", value);
-  }, token);
+- // Set the login token into browser
+- await page.addInitScript((value) => {
+-   window.localStorage.setItem("token", value);
+- }, token);
 
 
   // open the home page url, it will open without login.
@@ -1455,7 +1478,7 @@ test("Login using API to bypass the login page", async ({ request, page }) => {
 ```
 
 ### 2. Use StorageState using API to bypass the login page.
-```
+```diff
 const { test } = require("@playwright/test");
 
 test.beforeAll('Get the storage state json file', async ({browser}) => {
@@ -1469,15 +1492,14 @@ test.beforeAll('Get the storage state json file', async ({browser}) => {
     await page.fill('#userPassword', 'Sachin@123');
     await page.click('[value="Login"]');
 
-    await page.waitForLoadState('networkidle');
-
-    await context.storageState({path: 'state.json'});
+-   await page.waitForLoadState('networkidle');
+-   await context.storageState({path: 'state.json'});
 
 })
 
 test("Use StorageState using API to bypass the login page", async ({browser}) => {
 
-    let context = await browser.newContext({storageState: 'state.json'});
+-   let context = await browser.newContext({storageState: 'state.json'});
     let page = await context.newPage();
 
     // open the home page url, it will open without login.
@@ -1488,12 +1510,12 @@ test("Use StorageState using API to bypass the login page", async ({browser}) =>
 ```
 
 ### 3. Intercepting Request.
-```
+```diff
 const {test, expect} = require('@playwright/test');
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjVhY2ZiMWFlMmFmZDRjMGJlZDMxNWMiLCJ1c2VyRW1haWwiOiJzYWNoaW5rbnNhY2hpQGdtYWlsLmNvbSIsInVzZXJNb2JpbGUiOjk5MTY0MjM2MjgsInVzZXJSb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MTcyNTQyODMsImV4cCI6MTc0ODgxMTg4M30.9dzH4KFxbCqkwH27j46RaxTPUR784y8SJdQLfr023J4";
 
-test('Intercepting - Manipulating the response', async ({page}) => {
+test('Intercepting - Manipulating the request', async ({page}) => {
 
     // Login and open site
     await page.addInitScript(value => {
@@ -1504,11 +1526,11 @@ test('Intercepting - Manipulating the response', async ({page}) => {
     await page.click('//button[contains(.,"ORDERS")]');
 
     // Setup Manipulate the request
-    await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=*', route => {
-        route.continue({
-            url: 'https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=621661f884b053f6765465b6'
-        })
-    })
+-   await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=*', (route) => {
+-       route.continue({
+-           url: 'https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=621661f884b053f6765465b6'
+-       })
+-   })
 
     await page.locator("button:has-text('View')").first().click();
     await expect(page.locator("p").last()).toHaveText("You are not authorize to view this order")
@@ -1518,7 +1540,7 @@ test('Intercepting - Manipulating the response', async ({page}) => {
 ```
 
 ### 4. Intercepting Response - Manipulating the response.
-```
+```diff
 const {test, expect} = require('@playwright/test');
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjVhY2ZiMWFlMmFmZDRjMGJlZDMxNWMiLCJ1c2VyRW1haWwiOiJzYWNoaW5rbnNhY2hpQGdtYWlsLmNvbSIsInVzZXJNb2JpbGUiOjk5MTY0MjM2MjgsInVzZXJSb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MTcyNTQyODMsImV4cCI6MTc0ODgxMTg4M30.9dzH4KFxbCqkwH27j46RaxTPUR784y8SJdQLfr023J4";
@@ -1532,13 +1554,13 @@ test('Intercepting - Manipulating the response', async ({page}) => {
     await page.goto('https://rahulshettyacademy.com/client');
 
     // get the response and manipulate
-    await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*', route => {
-        const response = page.request.fetch(route.request());
-        route.fulfill({
-            response,
-            body: '{"data":[],"message":"No Orders"}'
-        })
-    });
+-   await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*', route => {
+-       const response = page.request.fetch(route.request());
+-       route.fulfill({
+-           response,
+-           body: '{"data":[],"message":"No Orders"}'
+-       })
+-   });
 
     await page.click('//button[contains(.,"ORDERS")]');
     // await page.waitForResponse('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*');
@@ -1548,7 +1570,7 @@ test('Intercepting - Manipulating the response', async ({page}) => {
 ```
 
 ### 5. Intercepting Response - Aborting the response.
-```
+```diff
 const {test, expect} = require('@playwright/test');
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjVhY2ZiMWFlMmFmZDRjMGJlZDMxNWMiLCJ1c2VyRW1haWwiOiJzYWNoaW5rbnNhY2hpQGdtYWlsLmNvbSIsInVzZXJNb2JpbGUiOjk5MTY0MjM2MjgsInVzZXJSb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MTcyNTQyODMsImV4cCI6MTc0ODgxMTg4M30.9dzH4KFxbCqkwH27j46RaxTPUR784y8SJdQLfr023J4";
@@ -1561,13 +1583,13 @@ test.only('Intercepting - Aborting the response', async ({page}) => {
     }, token);
 
     // get the aborting the response which contains .jpg inthe request url response
-    await page.route('**/*.jpg', route => {
-        route.abort();
-    });
+-   await page.route('**/*.jpg', route => {
+-       route.abort();
+-   });
     
-    // await page.route('**/*', route => {
-    //     return route.request().resourceType() === 'image' ? route.abort() : route.continue();
-    // });
+-   // await page.route('**/*', route => {
+-   //     return route.request().resourceType() === 'image' ? route.abort() : route.continue();
+-   // });
 
     await page.goto('https://rahulshettyacademy.com/client');
 
