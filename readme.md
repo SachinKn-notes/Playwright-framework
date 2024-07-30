@@ -937,6 +937,13 @@ npx playwright test 05_Tags --project=chromium --grep '@reg'
 npx playwright test 05_Tags --project=chromium --grep '@sanity' --grep-invert '@reg'
 ```
 
+## Execute Javascript.
+```
+let value = await page.evaluate(() => {
+	return window.document.querySelector('locator').textContent;
+});
+```
+
 ## BeforeEach, AfterEach, BeforeAll, AfterAll.
 ```
 const {test, expect} = require('@playwright/test');
