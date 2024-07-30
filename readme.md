@@ -1525,12 +1525,12 @@ test('Intercepting - Manipulating the request', async ({page}) => {
 
     await page.click('//button[contains(.,"ORDERS")]');
 
-    // Setup Manipulate the request
-    await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=*', route => {
-        route.continue({
-            url: 'https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=621661f884b053f6765465b6'
-        })
-    })
+-   // Setup Manipulate the request
+-   await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=*', (route) => {
+-       route.continue({
+-           url: 'https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=621661f884b053f6765465b6'
+-       })
+-   })
 
     await page.locator("button:has-text('View')").first().click();
     await expect(page.locator("p").last()).toHaveText("You are not authorize to view this order")
