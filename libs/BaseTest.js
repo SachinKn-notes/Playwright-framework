@@ -1,8 +1,8 @@
 const base = require("@playwright/test");
 
-import { LoginModule } from "../sachin-modules/LoginModule.js";
-import { SiteSelectionModule } from "../sachin-modules/SiteSelectionModule.js";
-import { SearchModule } from "../sachin-modules/SearchModule.js";
+import { LoginModule } from "../modules/LoginModule.js";
+import { SiteSelectionModule } from "../modules/SiteSelectionModule.js";
+import { SearchModule } from "../modules/SearchModule.js";
 
 const test = base.test.extend({
   loginModule: async ({ page }, use) => {

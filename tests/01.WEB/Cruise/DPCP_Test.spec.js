@@ -1,5 +1,5 @@
 // import {test} from '../../sachin-hub/BaseTest';
-const { test } = require('../../../sachin-hub/BaseTest');
+const { test } = require('../../../libs/BaseTest');
 
 test('Login test - @ODY-1 - @smoke', async ({page, loginModule, siteSelectionModule, searchModule}) => {
 
