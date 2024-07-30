@@ -27,7 +27,7 @@ const videoTypes = {
 module.exports = defineConfig({
 
   timeout: 60000,
-  testDir: './sachin-tests',
+  testDir: './tests',
   fullyParallel: Boolean(process.env.npm_config_fullyParallel) ? true : false,
 
   forbidOnly: !!process.env.CI,
