@@ -1525,7 +1525,7 @@ test('Intercepting - Manipulating the request', async ({page}) => {
 
     await page.click('//button[contains(.,"ORDERS")]');
 
--   // Setup Manipulate the request
+    // Setup Manipulate the request
 -   await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=*', (route) => {
 -       route.continue({
 -           url: 'https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=621661f884b053f6765465b6'
@@ -1554,13 +1554,13 @@ test('Intercepting - Manipulating the response', async ({page}) => {
     await page.goto('https://rahulshettyacademy.com/client');
 
     // get the response and manipulate
-    await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*', route => {
-        const response = page.request.fetch(route.request());
-        route.fulfill({
-            response,
-            body: '{"data":[],"message":"No Orders"}'
-        })
-    });
+-   await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*', route => {
+-       const response = page.request.fetch(route.request());
+-       route.fulfill({
+-           response,
+-           body: '{"data":[],"message":"No Orders"}'
+-       })
+-   });
 
     await page.click('//button[contains(.,"ORDERS")]');
     // await page.waitForResponse('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*');
@@ -1583,13 +1583,13 @@ test.only('Intercepting - Aborting the response', async ({page}) => {
     }, token);
 
     // get the aborting the response which contains .jpg inthe request url response
-    await page.route('**/*.jpg', route => {
-        route.abort();
-    });
+-   await page.route('**/*.jpg', route => {
+-       route.abort();
+-   });
     
-    // await page.route('**/*', route => {
-    //     return route.request().resourceType() === 'image' ? route.abort() : route.continue();
-    // });
+-   // await page.route('**/*', route => {
+-   //     return route.request().resourceType() === 'image' ? route.abort() : route.continue();
+-   // });
 
     await page.goto('https://rahulshettyacademy.com/client');
 
