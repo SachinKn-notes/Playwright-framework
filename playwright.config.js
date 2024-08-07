@@ -1,5 +1,7 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
+
+process.env.ProjectPath = __dirname;
 require('dotenv').config();
 
 const screenshotTypes = {
