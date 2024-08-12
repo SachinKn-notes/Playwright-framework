@@ -166,7 +166,7 @@ await page.waitForSelector('[data-ody-id="AdvanceSearchLink"]');
 
 ### 2. To wait for element to be visible
 ```
-await page.waitForSelector('[data-ody-id="AdvanceSearchLink"]', {status: 'visible'});
+await page.waitForSelector('[data-ody-id="AdvanceSearchLink"]', {state: 'visible'});
 ```
 
 ### 3. waitForDocumentToGetReady()
