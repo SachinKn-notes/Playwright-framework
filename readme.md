@@ -92,8 +92,6 @@ test('Test Name', async ({page, browserName}, testInfo) => {
 
 ## Playwright Test Examples
 ### 1. Simple Test in Playwright
-<details>
-<summary>Code - Click to expand</summary>
 
 ```javascript
 const { chromium, firefox, webkit } = require('playwright');
@@ -123,14 +121,12 @@ test();
  */
 ```
 
-</details>
-
-<img src="https://github.com/user-attachments/assets/f2b9ce96-c0b1-49a0-92fe-5edf34f71db9" width="700">
-
-
-### 2. Defining playwright test
 <details>
 <summary>Code - Click to expand</summary>
+<img src="https://github.com/user-attachments/assets/f2b9ce96-c0b1-49a0-92fe-5edf34f71db9" width="700">
+</details>
+
+### 2. Defining playwright test
 
 ```javascript
 const {test, expect} = require('@playwright/test')
@@ -184,9 +180,10 @@ test('Home test', async ({page}) => {
 })
 ```
 
-</details>
-
+<details>
+<summary>Code - Click to expand</summary>
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/8f924cca-a52e-4e1f-82f3-e4bb6ec3f136" width="700">
+</details>
 
 ## Assertions
 
