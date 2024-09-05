@@ -1,4 +1,8 @@
 # Playwright Notes
+
+## page methods
+
+
 ## Commands
 1. **npm init playwright@latest** -->  To install playwright
 2. **npx playwright test** --> Runs the end-to-end tests.
