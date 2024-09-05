@@ -1213,8 +1213,14 @@ test('Test-3', async ({browserName}) => {
 
 ### 3. Fail - Expect the test to fail.
 ```javascript
-test('Test-4', async ({browserName}) => {
+test('Test-4 | Approach-1', async ({browserName}) => {
     test.fail();
+    expect(1).toBe(2);
+    console.log('Test-4()');
+})
+```
+```javascript
+test.fail('Test-4 | Approach-2', async ({browserName}) => {
     expect(1).toBe(2);
     console.log('Test-4()');
 })
@@ -1222,8 +1228,14 @@ test('Test-4', async ({browserName}) => {
 
 ### 4. Fixme - Refers this test needs to be fixed & skips the test.
 ```javascript
-test('Test-5', async ({browserName}) => {
+test('Test-5 | Approach-1', async ({browserName}) => {
     test.fixme();
+    expect(1).toBe(2);
+    console.log('Test-5()');
+})
+```
+```javascript
+test.fixme('Test-5 | Approach-2', async ({browserName}) => {
     expect(1).toBe(2);
     console.log('Test-5()');
 })
