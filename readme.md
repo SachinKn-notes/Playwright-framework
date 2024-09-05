@@ -72,8 +72,8 @@ page.evaluate(() => {
 ```javascript
 test('Test Name', async ({page, browserName}, testInfo) => {
 	await page.goto('https://www.google.com');
-    console.log('browserName: ', browserName);
-    console.log('testInfo.timeout: ', testInfo.timeout);
+	console.log('browserName: ', browserName);
+	console.log('testInfo.timeout: ', testInfo.timeout);
 })
 ```
 
