@@ -3,16 +3,21 @@
 ## Playwright page methods
 * page.click(locator);
 <br/>
+
 * page.check(locator);
 * page.uncheck(locator);
 <br/>
+
 * page.fill(locator, 'Sachin');
 * page.type(locator, 'Sachin');
 <br/>
+
 * page.textContent(locator)
 <br/>
+
 * page.press(locator, 'Control+A');
 <br/>
+
 * page.selectOption(locator, { value: 'in' });
 * page.selectOption(locator, { index: 1 });
 * page.selectOption(locator, { lable: 'India' });
