@@ -783,6 +783,9 @@ test('Double click actions', async ({page}) => {
     // Approach-1
     await page.locator('button[ondblclick]').dblclick();
 
+	// Approach-2
+    await page.locator('button[ondblclick]').click({clickCount: 2});
+
     // Assertions
     expect((await page.locator('#field2').inputValue()).includes('Hello World!')).toBeTruthy();
     await expect(page.locator('#field2')).toHaveValue('Hello World!');
