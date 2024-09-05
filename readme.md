@@ -1304,10 +1304,10 @@ test('Handleing Multiple Pages/Tabs', async ({page}) => {
 
 ### 1. List Report.
 
-**configuration.**
+**configuration.**               
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/7735b4c4-e67a-4924-bade-0e0a182ebd0c" width="700">
 
-**output.**
+**output.**               
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/e19bb181-5c47-4bfc-9bd6-85421cc8aa61" width="700">
 
 ### 2. Dot Report.
