@@ -117,7 +117,7 @@ async function test() {
 test();
 
 /*
- * To run this execute below command
+ * To run this file, execute below command
  * ----------------------------------------
  * node fileName.js
  */
