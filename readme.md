@@ -206,7 +206,7 @@ test('Home test', async ({page}) => {
 - await expect(--locator).**toContainText**('Search');
 - await expect(--locator).**toHaveValue**('Miami');
 
-```
+```html
 <select id="favorite-colors" multiple>
     <option value="R">Red</option>
     <option value="G">Green</option>
@@ -236,25 +236,25 @@ const multiSelectDdOptionsLocator = page.locator('[id=favorite-colors] option');
 ## Waits
 
 ### 1. To wait for element to be present
-```
+```javascript
 await page.waitForSelector('[data-ody-id="AdvanceSearchLink"]');
 ```
 
 ### 2. To wait for element to be visible
-```
+```javascript
 await page.waitForSelector('[data-ody-id="AdvanceSearchLink"]', {state: 'visible'});
 ```
 
 ### 3. waitForDocumentToGetReady()
 #### Selenium
-```
+```java
 public void waitForDocumentToGetReady() {
     new WebDriverWait(webDriver, 60).until((ExpectedCondition<Boolean>) wd -> ((JavascriptExecutor) wd)
         .executeScript("return document.readyState").equals("complete"));
 }
 ```
 #### Playwright
-```
+```javascript
 async function waitForDocumentToGetReady(page) {
     await page.waitForLoadState('networkidle', { timeout: 60000 });
 }
@@ -262,7 +262,7 @@ async function waitForDocumentToGetReady(page) {
 
 ### 4. waitForAjaxToComplete()
 #### Selenium
-```
+```java
 public void waitForAjaxToComplete() {
 	waitForDocumentToGetReady();
 	new WebDriverWait(webDriver, 120).until((ExpectedCondition<Boolean>) driver -> {
@@ -277,7 +277,7 @@ public void waitForAjaxToComplete() {
 }
 ```
 #### Playwright
-```
+```javascript
 async function waitForAjaxToComplete(page) {
     await page.waitForFunction(() => {
         if (window.jQuery) {
@@ -293,7 +293,7 @@ async function waitForAjaxToComplete(page) {
 ## Increase Test Timeout
 
 ### 1. Approach 1
-```
+```javascript
 test('Increase Test Timeout - Approach 1', async ({page}, testInfo) => {
 
     // Increaase test timeout - Approach 1
@@ -304,7 +304,7 @@ test('Increase Test Timeout - Approach 1', async ({page}, testInfo) => {
 ```
 
 ### 2. Approach 2
-```
+```javascript
 test('Increase Test Timeout - Approach 2', async ({page}, testInfo) => {
 
     // Increaase test timeout - Approach 2
@@ -317,7 +317,7 @@ test('Increase Test Timeout - Approach 2', async ({page}, testInfo) => {
 ## Handling web elements. [Click here for more](https://github.com/sachinknsachi/Playwright-tutorials/tree/master/sachin-tests/Practice/tests-2)
 
 ### 1. Handling Input fields.
-```
+```javascript
 test('Handling Text field', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com/');
@@ -340,10 +340,10 @@ test('Handling Text field', async ({page}) => {
 ### 2. Handling Click actions.
 
 ```diff
-- Click method will just click on the element, but check will click if it not selected.
++ Click method will just click on the element, but check will click if it not selected.
 ```
 
-```
+```javascript
 test('Handling Click actions', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com/');
@@ -381,7 +381,7 @@ test('Handling Click actions', async ({page}) => {
 ```
 
 ### 3. Handling Dropdowns.
-```
+```javascript
 test('Handling Dropdowns', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com');
@@ -424,7 +424,7 @@ test('Handling Dropdowns', async ({page}) => {
 ```
 
 ### 4. Handling Multi Select Dropdown.
-```
+```javascript
 test('Handling Multi Select Dropdown', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com');
@@ -443,7 +443,7 @@ test('Handling Multi Select Dropdown', async ({page}) => {
 ### 5. Handling Dialogs/Alert popups.
 
 #### i. Alert with ok.
-```
+```javascript
 test('Alert with ok', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com');
@@ -473,7 +473,7 @@ test('Alert with ok', async ({page}) => {
 ```
 
 #### ii. Alert with confirmation.
-```
+```javascript
 test('Alert with confirmation', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com');
@@ -507,7 +507,7 @@ test('Alert with confirmation', async ({page}) => {
 ```
 
 #### iii. Alert with prompt.
-```
+```javascript
 test('Alert with prompt', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com');
@@ -544,7 +544,7 @@ test('Alert with prompt', async ({page}) => {
 ### 6. Handling Frames.
 
 #### i. To get the frames count.
-```
+```javascript
 test('To get the frames count', async ({page}) => {
 
     await page.goto('https://ui.vision/demo/webtest/frames/');
@@ -557,7 +557,7 @@ test('To get the frames count', async ({page}) => {
 ```
 
 #### ii. To interact with the frame using url.
-```
+```javascript
 test('To interact with the frame using url', async ({page}) => {
 
     await page.goto('https://ui.vision/demo/webtest/frames/');
@@ -573,7 +573,7 @@ test('To interact with the frame using url', async ({page}) => {
 ```
 
 #### iii. To interact with the frame using frame locator.
-```
+```javascript
 test('To interact with the frame using frame locator', async ({page}) => {
 
     await page.goto('https://ui.vision/demo/webtest/frames/');
@@ -589,7 +589,7 @@ test('To interact with the frame using frame locator', async ({page}) => {
 ```
 
 #### iiii. To interact with the inner frame.
-```
+```javascript
 test('To interact with the inner frame', async ({page}) => {
 
     await page.goto('https://ui.vision/demo/webtest/frames/');
@@ -606,7 +606,7 @@ test('To interact with the inner frame', async ({page}) => {
 ```
 
 ### 7. Elements.filter() - filtering the located elements.
-```
+```javascript
 test('Elements.filter()', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com/');
@@ -632,7 +632,7 @@ test('Elements.filter()', async ({page}) => {
 ### 8. Handling web table.
 
 #### i. Printing web table data.
-```
+```javascript
 test('Printing web table', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com/');
@@ -650,7 +650,7 @@ test('Printing web table', async ({page}) => {
 })
 ```
 ##### Output.
-```
+```text
 BookName                Author      Subject         Price
 Learn Selenium          Amit        Selenium        300
 Learn Java              Mukesh      Java            500
@@ -660,8 +660,8 @@ Master In Java          Amod        JAVA            2000
 Master In JS            Amit        Javascript      1000
 ```
 
-#### ii. Printing table data as []{}.
-```
+#### ii. Printing table data as [{},{}].
+```javascript
 test('Printing table data as []{}', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com/');
@@ -690,7 +690,7 @@ test('Printing table data as []{}', async ({page}) => {
 })
 ```
 ##### Output.
-```
+```javascript
 [
   {
     BookName: 'Learn Selenium',
@@ -732,7 +732,7 @@ test('Printing table data as []{}', async ({page}) => {
 ```
 
 ### 9. Move to element / Mouse Hover.
-```
+```javascript
 test('Move to element', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com');
@@ -745,7 +745,7 @@ test('Move to element', async ({page}) => {
 ### 10. Mouse Actions.
 
 #### i. Right click action.
-```
+```javascript
 test('Right click actions', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com/');
 
@@ -755,7 +755,7 @@ test('Right click actions', async ({page}) => {
 ```
 
 #### ii. Double click action.
-```
+```javascript
 test('Double click actions', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com/');
@@ -772,7 +772,7 @@ test('Double click actions', async ({page}) => {
 #### ii. Drag and Drop.
 
 ##### Approach 1.
-```
+```javascript
 test('Drag and Drop', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com/');
@@ -787,7 +787,7 @@ test('Drag and Drop', async ({page}) => {
 ```
 
 ##### Approach 2.
-```
+```javascript
 test('Drag and Drop', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com/');
@@ -808,7 +808,7 @@ test('Drag and Drop', async ({page}) => {
 ### 11. Keyboard Actions
 
 #### i. Copy paste text.
-```
+```javascript
 test('Copy paste text', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com');
 
@@ -821,7 +821,7 @@ test('Copy paste text', async ({page}) => {
 ```
 
 #### ii. clear and type - Approach 1.
-```
+```javascript
 test.skip('clear and type - Approach 1', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com');
 
@@ -830,7 +830,7 @@ test.skip('clear and type - Approach 1', async ({page}) => {
 ```
 
 #### iii. clear and type - Approach 2.
-```
+```javascript
 test.skip('clear and type - Approach 2', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com');
 
@@ -842,7 +842,7 @@ test.skip('clear and type - Approach 2', async ({page}) => {
 ```
 
 #### iv. clear and type - Approach 3.
-```
+```javascript
 test.skip('clear and type - Approach 3', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com');
 
@@ -854,7 +854,7 @@ test.skip('clear and type - Approach 3', async ({page}) => {
 ```
 
 #### v. clear and type - Approach 4.
-```
+```javascript
 test.skip('clear and type - Approach 4', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com');
 
@@ -875,7 +875,7 @@ test.skip('clear and type - Approach 4', async ({page}) => {
 ### 12. Handling Upload Files
 
 #### i. Single file.
-```
+```javascript
 test('Upload Files - Single file', async ({page}) => {
 
     await page.goto('https://davidwalsh.name/demo/multiple-file-upload.php');
@@ -890,7 +890,7 @@ test('Upload Files - Single file', async ({page}) => {
 ```
 
 #### ii. Multiple files.
-```
+```javascript
 test.skip('Upload Files - Multiple files', async ({page}) => {
 
     await page.goto('https://davidwalsh.name/demo/multiple-file-upload.php');
@@ -906,7 +906,7 @@ test.skip('Upload Files - Multiple files', async ({page}) => {
 ```
 
 #### iii. Remove uploaded file.
-```
+```javascript
 test('Upload Files - Remove uploaded file', async ({page}) => {
 
     await page.goto('https://davidwalsh.name/demo/multiple-file-upload.php');
@@ -931,7 +931,7 @@ test('Upload Files - Remove uploaded file', async ({page}) => {
 ### 13. Capture Screenshots
 
 #### i. Page Screenshot
-```
+```javascript
 test('Page Screenshot', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com');
 
@@ -940,7 +940,7 @@ test('Page Screenshot', async ({page}) => {
 ```
 
 #### ii. Full Page Screenshot
-```
+```javascript
 test('Full Page Screenshot', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com');
 
@@ -949,7 +949,7 @@ test('Full Page Screenshot', async ({page}) => {
 ```
 
 #### iii. Element Screenshot
-```
+```javascript
 test('Element Screenshot', async ({page}) => {
     await page.goto('https://testautomationpractice.blogspot.com');
 
@@ -966,7 +966,7 @@ test('Element Screenshot', async ({page}) => {
 ### 16. Tags
 
 #### i. Script
-```
+```javascript
 const {test, expect} = require('@playwright/test');
 
 test('Test_1 @sanity', async () => {
@@ -991,29 +991,29 @@ test('Test_5 @sanity @reg', async () => {
 ```
 
 #### ii. To run only @sanity
-```
+```javascript
 npx playwright test 05_Tags --project=chromium --grep '@sanity'
 ```
 
 #### iii. To run only @reg
-```
+```javascript
 npx playwright test 05_Tags --project=chromium --grep '@reg'
 ```
 
 #### iv. To run only @sanity but not @reg
-```
+```javascript
 npx playwright test 05_Tags --project=chromium --grep '@sanity' --grep-invert '@reg'
 ```
 
 ## Execute Javascript.
-```
+```javascript
 let value = await page.evaluate(() => {
 	return window.document.querySelector('locator').textContent;
 });
 ```
 
 ## BeforeEach, AfterEach, BeforeAll, AfterAll.
-```
+```javascript
 const {test, expect} = require('@playwright/test');
 
 let page;
@@ -1071,7 +1071,7 @@ test.afterAll('afterAll', async () => {
 ## Grouping Tests
 
 ### 1. Describe Block
-```
+```javascript
 const {test, expect} = require('@playwright/test');
 
 // BeforeAll --------------------------------------------------------
@@ -1127,7 +1127,7 @@ test.afterAll('afterAll', async () => {
 ```
 
 ### 2. Execute Specific Describe Block (test.describe.only)
-```
+```javascript
 test.describe.only('Group-1', async () => {
 
     // test_1 -------------------------------------------------------
@@ -1144,7 +1144,7 @@ test.describe.only('Group-1', async () => {
 ```
 
 ### 3. Skip Specific Describe Block (test.describe.skip)
-```
+```javascript
 test.describe.skip('Group-2', async () => {
 
     // test_3 -------------------------------------------------------
@@ -1163,7 +1163,7 @@ test.describe.skip('Group-2', async () => {
 ## Annotations | Only, Skip, Fail, Fixme & Slow.
 
 ### 1. Only - Runs only the specific test and skips rest.
-```
+```javascript
 test.only('Test-1', async () => {
     console.log('Test-1()');
 })
@@ -1172,14 +1172,14 @@ test.only('Test-1', async () => {
 ### 2. Skip - Skips the specific test.
 
 #### i. Approach 1.
-```
+```javascript
 test.skip('Test-2', async () => {
     console.log('Test-2()');
 })
 ```
 
 #### ii. Approach 2.
-```
+```javascript
 test('Test-3', async ({browserName}) => {
     if (browserName === 'chromium') {
         test.skip();
@@ -1189,7 +1189,7 @@ test('Test-3', async ({browserName}) => {
 ```
 
 ### 3. Fail - Expect the test to fail.
-```
+```javascript
 test('Test-4', async ({browserName}) => {
     test.fail();
     expect(1).toBe(2);
@@ -1198,7 +1198,7 @@ test('Test-4', async ({browserName}) => {
 ```
 
 ### 4. Fixme - Refers this test needs to be fixed & skips the test.
-```
+```javascript
 test('Test-5', async ({browserName}) => {
     test.fixme();
     expect(1).toBe(2);
@@ -1207,7 +1207,7 @@ test('Test-5', async ({browserName}) => {
 ```
 
 ### 5. Slow - Increase the time to 3x.
-```
+```javascript
 test('Test-6', async ({browserName}, testInfo) => {
 
     console.log(testInfo.timeout);
@@ -1218,7 +1218,7 @@ test('Test-6', async ({browserName}, testInfo) => {
 })
 ```
 output
-```
+```text
 60000
 180000
 Test-6()
@@ -1227,7 +1227,7 @@ Test-6()
 ## Multiple Pages/Tabs
 
 ### 1. Browser Context & Creating Multiple pages
-```
+```javascript
 const {test, expect, chromium} = require('@playwright/test');
 
 test('Browser Context & Multiple pages', async () => {
@@ -1244,7 +1244,7 @@ test('Browser Context & Multiple pages', async () => {
 ```
 
 ### 2. Handleing Multiple Pages/Tabs
-```
+```javascript
 const {test, expect, chromium} = require('@playwright/test');
 
 test('Handleing Multiple Pages/Tabs', async () => {
@@ -1316,45 +1316,45 @@ test('Handleing Multiple Pages/Tabs', async () => {
 ## Reporters | Allure Report.
 
 ### 1. Execute below command to install allure-playwright (It is used to generate allure report files).
-```
+```javascript
 npm i -D @playwright/test allure-playwright
 ```
 
 ### 2. Execute below command to install allure-commandline (It is used to generate & open allure report).
-```
+```javascript
 npm install -g allure-commandline --save-dev
 ```
 
 ### 3. Add allure-playwright into *playwright.config.js*
-```
+```javascript
 {
   reporter: "allure-playwright";
 }
 ```
-```
+```javascript
 {
   reporter: [["line"], ["allure-playwright"]];
 }
 ```
-```
+```javascript
 {
   reporter: [["line"], ["allure-playwright", {outputFolder: 'my-allure-results'}]];
 }
 ```
 
 ### 4. Generate Allure Report.
-```
+```javascript
 allure generate my-allure-results -o allure-report --clean
 ```
 
 ### 5. Open Allure Report.
-```
+```javascript
 allure open allure-report
 ```
 
 ## Retry Tests.
 #### Example tests
-```
+```javascript
 const {test} = require('@playwright/test');
 
 test('Test-1', async () => {
@@ -1394,7 +1394,7 @@ test('Test-5', async () => {
 ```
 
 #### Configuration in *playwright.config.js*
-```
+```javascript
 {
     // retries: process.env.CI ? 2 : 0,
     retries: 1, // Retries 1 time.
@@ -1402,7 +1402,7 @@ test('Test-5', async () => {
 ```
 
 #### Output.
-```
+```text
 PS D:\Work\Git\Playwright-tutorials> npx playwright test 09_RetryTests --project=chromium --headed
 
 Running 5 tests using 1 worker
@@ -1424,7 +1424,7 @@ Running 5 tests using 1 worker
 ## API Testing
 
 ### 1. GET Request
-```
+```javascript
 const {test, expect} = require('@playwright/test');
 
 const baseURL = 'https://reqres.in';
@@ -1446,7 +1446,7 @@ test('Get User', async ({request}) => {
 ```
 
 ### 2. POST Request
-```
+```javascript
 test('Create User', async ({request}) => {
 
     const response = await request.post(baseURL + '/api/users', {
@@ -1474,7 +1474,7 @@ test('Create User', async ({request}) => {
 ```
 
 ### 3. PUT Request
-```
+```javascript
 test('Update User', async ({request}) => {
 
     const response = await request.put(baseURL + '/api/users/' + userId, {
@@ -1500,7 +1500,7 @@ test('Update User', async ({request}) => {
 ```
 
 ### 4. Delete Request
-```
+```javascript
 test('Delete User', async ({request}) => {
     const response = await request.delete(baseURL + '/api/users/' + userId);
     expect(response.status()).toBe(204);
@@ -1514,7 +1514,7 @@ test('Delete User', async ({request}) => {
 ````
 
 ### 1. Login using API to bypass the login page.
-```diff
+```javascript
 const { test } = require("@playwright/test");
 
 test("Login using API to bypass the login page", async ({ request, page }) => {
@@ -1532,10 +1532,10 @@ test("Login using API to bypass the login page", async ({ request, page }) => {
   let token = (await response.json()).token;
 
   
-- // Set the login token into browser
-- await page.addInitScript((value) => {
--   window.localStorage.setItem("token", value);
-- }, token);
+  // Set the login token into browser
+  await page.addInitScript((value) => {
+    window.localStorage.setItem("token", value);
+  }, token);
 
 
   // open the home page url, it will open without login.
@@ -1546,7 +1546,7 @@ test("Login using API to bypass the login page", async ({ request, page }) => {
 ```
 
 ### 2. Use StorageState using API to bypass the login page.
-```diff
+```javascript
 const { test } = require("@playwright/test");
 
 test.beforeAll('Get the storage state json file', async ({browser}) => {
@@ -1560,14 +1560,14 @@ test.beforeAll('Get the storage state json file', async ({browser}) => {
     await page.fill('#userPassword', 'Sachin@123');
     await page.click('[value="Login"]');
 
--   await page.waitForLoadState('networkidle');
--   await context.storageState({path: 'state.json'});
+    await page.waitForLoadState('networkidle');
+    await context.storageState({path: 'state.json'});
 
 })
 
 test("Use StorageState using API to bypass the login page", async ({browser}) => {
 
--   let context = await browser.newContext({storageState: 'state.json'});
+    let context = await browser.newContext({storageState: 'state.json'});
     let page = await context.newPage();
 
     // open the home page url, it will open without login.
@@ -1578,7 +1578,7 @@ test("Use StorageState using API to bypass the login page", async ({browser}) =>
 ```
 
 ### 3. Intercepting Request.
-```diff
+```javascript
 const {test, expect} = require('@playwright/test');
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjVhY2ZiMWFlMmFmZDRjMGJlZDMxNWMiLCJ1c2VyRW1haWwiOiJzYWNoaW5rbnNhY2hpQGdtYWlsLmNvbSIsInVzZXJNb2JpbGUiOjk5MTY0MjM2MjgsInVzZXJSb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MTcyNTQyODMsImV4cCI6MTc0ODgxMTg4M30.9dzH4KFxbCqkwH27j46RaxTPUR784y8SJdQLfr023J4";
@@ -1594,11 +1594,11 @@ test('Intercepting - Manipulating the request', async ({page}) => {
     await page.click('//button[contains(.,"ORDERS")]');
 
     // Setup Manipulate the request
--   await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=*', (route) => {
--       route.continue({
--           url: 'https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=621661f884b053f6765465b6'
--       })
--   })
+    await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=*', (route) => {
+        route.continue({
+            url: 'https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=621661f884b053f6765465b6'
+        })
+    })
 
     await page.locator("button:has-text('View')").first().click();
     await expect(page.locator("p").last()).toHaveText("You are not authorize to view this order")
@@ -1608,7 +1608,7 @@ test('Intercepting - Manipulating the request', async ({page}) => {
 ```
 
 ### 4. Intercepting Response - Manipulating the response.
-```diff
+```javascript
 const {test, expect} = require('@playwright/test');
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjVhY2ZiMWFlMmFmZDRjMGJlZDMxNWMiLCJ1c2VyRW1haWwiOiJzYWNoaW5rbnNhY2hpQGdtYWlsLmNvbSIsInVzZXJNb2JpbGUiOjk5MTY0MjM2MjgsInVzZXJSb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MTcyNTQyODMsImV4cCI6MTc0ODgxMTg4M30.9dzH4KFxbCqkwH27j46RaxTPUR784y8SJdQLfr023J4";
@@ -1622,13 +1622,13 @@ test('Intercepting - Manipulating the response', async ({page}) => {
     await page.goto('https://rahulshettyacademy.com/client');
 
     // get the response and manipulate
--   await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*', route => {
--       const response = page.request.fetch(route.request());
--       route.fulfill({
--           response,
--           body: '{"data":[],"message":"No Orders"}'
--       })
--   });
+    await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*', route => {
+        const response = page.request.fetch(route.request());
+        route.fulfill({
+            response,
+            body: '{"data":[],"message":"No Orders"}'
+        })
+    });
 
     await page.click('//button[contains(.,"ORDERS")]');
     // await page.waitForResponse('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*');
@@ -1638,7 +1638,7 @@ test('Intercepting - Manipulating the response', async ({page}) => {
 ```
 
 ### 5. Intercepting Response - Aborting the response.
-```diff
+```javascript
 const {test, expect} = require('@playwright/test');
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjVhY2ZiMWFlMmFmZDRjMGJlZDMxNWMiLCJ1c2VyRW1haWwiOiJzYWNoaW5rbnNhY2hpQGdtYWlsLmNvbSIsInVzZXJNb2JpbGUiOjk5MTY0MjM2MjgsInVzZXJSb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MTcyNTQyODMsImV4cCI6MTc0ODgxMTg4M30.9dzH4KFxbCqkwH27j46RaxTPUR784y8SJdQLfr023J4";
@@ -1651,13 +1651,13 @@ test.only('Intercepting - Aborting the response', async ({page}) => {
     }, token);
 
     // get the aborting the response which contains .jpg inthe request url response
--   await page.route('**/*.jpg', route => {
--       route.abort();
--   });
+    await page.route('**/*.jpg', route => {
+        route.abort();
+    });
     
--   // await page.route('**/*', route => {
--   //     return route.request().resourceType() === 'image' ? route.abort() : route.continue();
--   // });
+    // await page.route('**/*', route => {
+    //     return route.request().resourceType() === 'image' ? route.abort() : route.continue();
+    // });
 
     await page.goto('https://rahulshettyacademy.com/client');
 
