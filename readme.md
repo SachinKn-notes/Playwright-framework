@@ -141,8 +141,11 @@ test_2();
 ```javascript
 test('Test Name', async ({page, browserName}, testInfo) => {
 	await page.goto('https://www.google.com');
+
 	console.log('browserName: ', browserName);
 	console.log('testInfo.timeout: ', testInfo.timeout);
+
+	await page.close();
 })
 ```
 
@@ -152,7 +155,7 @@ test('Test Name', async ({page, browserName}, testInfo) => {
 ```javascript
 const {test, expect} = require('@playwright/test')
 
-test('Home test', async ({page}) => {
+test('Home page test', async ({page}) => {
 
     await page.goto('https://uat.odysol.com/swift/cruise?siid=130386');
 
