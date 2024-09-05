@@ -95,7 +95,7 @@ test('Test Name', async ({page, browserName}, testInfo) => {
 <details>
 <summary>Code - Click to expand</summary>
 
-```
+```javascript
 const { chromium, firefox, webkit } = require('playwright');
 
 async function test() {
@@ -131,7 +131,7 @@ To run this execute below command
 <details>
 <summary>Code - Click to expand</summary>
 
-```
+```javascript
 const {test, expect} = require('@playwright/test')
 
 test('Home test', async ({page}) => {
