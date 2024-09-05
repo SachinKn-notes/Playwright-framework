@@ -1304,47 +1304,58 @@ test('Handleing Multiple Pages/Tabs', async ({page}) => {
 
 ### 1. List Report.
 
-**configuration.**               
+**configuration.**
+
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/7735b4c4-e67a-4924-bade-0e0a182ebd0c" width="700">
 
-**output.**               
+**output.**
+
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/e19bb181-5c47-4bfc-9bd6-85421cc8aa61" width="700">
 
 ### 2. Dot Report.
 
 **configuration.**
+
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/e18ad3fa-ed00-4e1a-8e91-96f1fa3fbc82" width="700">
 
 **output.**
+
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b31cb3f0-66f8-4bf8-b6bb-6d207bc3c0e8" width="700">
 
 ### 3. HTML Report.
 
 **configuration.**
+
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/7cb37bad-8c18-4692-8a47-71862e670706" width="700">
 
 **output.**
+
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b38f89db-2799-4fc6-b890-da149df474b0" width="700">
 
 ### 4. Json Report.
 
 **configuration.**
+
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/b111b831-faf7-40fb-83b9-3a7df6f96adb" width="700">
 
 **output.**
+
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/5df5373d-c379-48ef-80f6-e995dfe2d083" width="700">
 
 ### 5. jUnit Report.
 
 **configuration.**
+
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/fa8c0cac-9cf1-42d4-80ff-ab9c70b053ac" width="700">
 
 **output.**
+
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/8227eed0-7f3a-4f9d-850d-e768469ff7f7" width="700">
 
 ### 6. All Reports.
 
 **configuration.**
+
 <img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/ac8b5c16-5257-4eef-ae1a-823198b4c712" width="700">
 
 ## Reporters | Allure Report.
