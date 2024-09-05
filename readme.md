@@ -340,7 +340,7 @@ test('Handling Text field', async ({page}) => {
 ### 2. Handling Click actions.
 
 ```diff
-+ Click method will just click on the element, but check will click if it not selected.
++ Click method will just click on the element, but check will click if it is not selected.
 ```
 
 ```javascript
