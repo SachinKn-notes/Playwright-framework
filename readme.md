@@ -30,7 +30,6 @@
 		console.log(dialog.type());                
 		console.log(dialog.message());
   <br/>
-
 		await dialog.accept(); // for alert dialog              
 		await dialog.accept('Sachin');  // for prompt dialog                
   		await dialog.dismiss(); // for confirm dialog            
