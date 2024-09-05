@@ -783,7 +783,7 @@ test('Double click actions', async ({page}) => {
     // Approach-1
     await page.locator('button[ondblclick]').dblclick();
 
-	// Approach-2
+    // Approach-2
     await page.locator('button[ondblclick]').click({clickCount: 2});
 
     // Assertions
