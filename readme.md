@@ -1,6 +1,7 @@
 # Playwright Notes
 
 ## Playwright page methods
+```
 * page.click(locator);
 <br/>
 
@@ -83,6 +84,7 @@ page.on('dialog', async (dialog) => {
 	return window.document.querySelector('locator').textContent;
 })
 <br/>
+```
 
 * test('Test Name', async ({page, browserName}, testInfo) => {
 	await page.goto('https://www.google.com');
