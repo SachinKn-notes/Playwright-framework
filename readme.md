@@ -1,7 +1,75 @@
 # Playwright Notes
 
-## page methods
+## Playwright page methods
+* page.click(locator);
 
+* page.check(locator);
+* page.uncheck(locator);
+
+* page.fill(locator, 'Sachin');
+* page.type(locator, 'Sachin');
+
+* page.textContent(locator)
+
+* page.press(locator, 'Control+A');
+
+* page.selectOption(locator, { value: 'in' });
+* page.selectOption(locator, { index: 1 });
+* page.selectOption(locator, { lable: 'India' });
+* page.selectOption(locator, 'India');
+* page.selectOption(locator, ['red', 'green', 'white']);
+
+* dialog
+        page.on('dialog', async (dialog) => {
+                console.log(dialog.type());
+                console.log(dialog.message());
+                await dialog.accept(); // for alert dialog
+                await dialog.accept('Sachin');  // for prompt dialog
+                await dialog.dismiss(); // for confirm dialog
+        });
+
+* page.frames().length;
+* page.frameLocator('[src="frame_1.html"]').locator('[name="mytext1"]').fill('Sachin');
+* page.frame({url: /.*frame_3.html/}).fill('[name="mytext3"]', 'Sachin');
+* page.frame({url: /.*frame_3.html/}).childFrames()[0].click('(//div[@role="listitem"])[1]//span[@role="presentation"]//label[normalize-space()="I am a human"]');
+
+* page.locator('//table[@id="productTable"]//tr').filter({
+    has: page.locator('//td'),
+    hasText: 'Product 2'
+})
+
+* page.hover('#droppable')
+
+* page.click('#droppable', {button: 'right'});
+* page.click('[ondblclick="myFunction1()"]', {clickCount: 2});
+* page.dblclick('[ondblclick="myFunction1()"]');
+
+* page.locator('#draggable').dragTo(page.locator('#droppable'));
+
+* page.mouse.down();
+* page.mouse.up();
+
+* page.keyboard.down('Control');
+* page.keyboard.down('A');
+* page.keyboard.up('A');
+* page.keyboard.up('Control');
+
+* page.locator('#filesToUpload').setInputFiles('..\\tests\\resources\\File_1.pdf');
+* page.locator('#filesToUpload').setInputFiles(['File_1.pdf', 'File_2.pdf']);
+
+* page.screenshot({path: "sc.png"});
+* page.screenshot({path: "sc_full.png", fullPage: true});
+* page.locator('[name="BookTable"]').screenshot({path: "table.png"});
+
+* page.evaluate(() => {
+	return window.document.querySelector('locator').textContent;
+})
+
+* test('Test Name', async ({page, browserName}, testInfo) => {
+	await page.goto('https://www.google.com');
+    console.log('browserName: ', browserName);
+    console.log('testInfo.timeout: ', testInfo.timeout);
+})
 
 ## Commands
 1. **npm init playwright@latest** -->  To install playwright
