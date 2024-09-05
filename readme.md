@@ -69,14 +69,6 @@ page.evaluate(() => {
 })
 ```
 
-```javascript
-test('Test Name', async ({page, browserName}, testInfo) => {
-	await page.goto('https://www.google.com');
-	console.log('browserName: ', browserName);
-	console.log('testInfo.timeout: ', testInfo.timeout);
-})
-```
-
 ## Commands
 1. **npm init playwright@latest** -->  To install playwright
 2. **npx playwright test** --> Runs the end-to-end tests.
@@ -96,23 +88,47 @@ test('Test Name', async ({page, browserName}, testInfo) => {
 ```javascript
 const { chromium, firefox, webkit } = require('playwright');
 
-async function test() {
-
+// Approach - 1
+async function test_1() {
     // Creating browser instanse
     const browser = await chromium.launch({ headless: false });
 
-    // Launching browser
-    const page = await browser.newPage();
+    // Creating browser context
+    const context = await browser.newContext();
 
-    // Launching the page
+    // Launching browser
+    const page = await context.newPage();
+
+    // Opening the url
     await page.goto('https://www.google.com');
+
+    // Printing total number of contexts on the browser
+    console.log(browser.contexts().length);
 
     // closing the browser
     await browser.close();
-
 }
 
-test();
+// Approach - 2
+async function test_2() {
+    // Creating browser instanse
+    const browser = await chromium.launch({ headless: false });
+
+    // Creating browser context & Launching browser
+    const page = await browser.newPage();
+
+    // Opening the url
+    await page.goto('https://www.google.com');
+
+    // Printing total number of contexts on the browser
+    console.log(browser.contexts().length);
+
+    // closing the browser
+    await browser.close();
+}
+
+test_1();
+test_2();
 
 /*
  * To run this file, execute below command
@@ -121,12 +137,17 @@ test();
  */
 ```
 
-<details>
-<summary>Code - Click to expand</summary>
-<img src="https://github.com/user-attachments/assets/f2b9ce96-c0b1-49a0-92fe-5edf34f71db9" width="700">
-</details>
-
 ### 2. Defining playwright test
+```javascript
+test('Test Name', async ({page, browserName}, testInfo) => {
+	await page.goto('https://www.google.com');
+	console.log('browserName: ', browserName);
+	console.log('testInfo.timeout: ', testInfo.timeout);
+})
+```
+
+<details>
+<summary>Click here for more</summary>
 
 ```javascript
 const {test, expect} = require('@playwright/test')
@@ -179,10 +200,6 @@ test('Home test', async ({page}) => {
     await page.close();
 })
 ```
-
-<details>
-<summary>Code - Click to expand</summary>
-<img src="https://github.com/sachinknsachi/Playwright-tutorials/assets/106311617/8f924cca-a52e-4e1f-82f3-e4bb6ec3f136" width="700">
 </details>
 
 ## Assertions
