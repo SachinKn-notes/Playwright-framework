@@ -1,48 +1,40 @@
 # Playwright Notes
 
 ## Playwright page methods
-```
-* page.click(locator);
-<br/>
+```javascript
+page.click(locator);
 
-* page.check(locator);
-* page.uncheck(locator);
-<br/>
+page.check(locator);
+page.uncheck(locator);
 
-* page.fill(locator, 'Sachin');
-* page.type(locator, 'Sachin');
-<br/>
+page.fill(locator, 'Sachin');
+page.type(locator, 'Sachin');
 
-* page.textContent(locator)
-<br/>
+page.textContent(locator)
 
-* page.press(locator, 'Control+A');
-<br/>
+page.press(locator, 'Control+A');
 
-* page.selectOption(locator, { value: 'in' });
-* page.selectOption(locator, { index: 1 });
-* page.selectOption(locator, { lable: 'India' });
-* page.selectOption(locator, 'India');
-* page.selectOption(locator, ['red', 'green', 'white']);
-<br/>
+page.selectOption(locator, { value: 'in' });
+page.selectOption(locator, { index: 1 });
+page.selectOption(locator, { lable: 'India' });
+page.selectOption(locator, 'India');
+page.selectOption(locator, ['red', 'green', 'white']);
 
-* dialog             
+dialog             
 page.on('dialog', async (dialog) => {
 	console.log(dialog.type());                
 	console.log(dialog.message());
-‎ 
+
 	await dialog.accept(); // for alert dialog              
 	await dialog.accept('Sachin');  // for prompt dialog                
 	await dialog.dismiss(); // for confirm dialog            
 });              
-<br/>
 
-* page.frames().length;
-* page.frameLocator('[src="frame_1.html"]').locator('[name="mytext1"]').fill('Sachin');
-* page.frame({url: /.*frame_3.html/}).fill('[name="mytext3"]', 'Sachin');
-* page.frame({url: /.*frame_3.html/}).childFrames()[0]
+page.frames().length;
+page.frameLocator('[src="frame_1.html"]').locator('[name="mytext1"]').fill('Sachin');
+page.frame({url: /.*frame_3.html/}).fill('[name="mytext3"]', 'Sachin');
+page.frame({url: /.*frame_3.html/}).childFrames()[0]
   	.click('(//div[@role="listitem"])[1]//span[@role="presentation"]//label[normalize-space()="I am a human"]');
-<br/>
 
 * page.locator('//table[@id="productTable"]//tr').filter({
     has: page.locator('//td'),
