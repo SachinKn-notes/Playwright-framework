@@ -23,6 +23,7 @@
 * page.selectOption(locator, { lable: 'India' });
 * page.selectOption(locator, 'India');
 * page.selectOption(locator, ['red', 'green', 'white']);
+<br/>
 
 * dialog
         page.on('dialog', async (dialog) => {
@@ -32,43 +33,54 @@
                 await dialog.accept('Sachin');  // for prompt dialog
                 await dialog.dismiss(); // for confirm dialog
         });
+<br/>
 
 * page.frames().length;
 * page.frameLocator('[src="frame_1.html"]').locator('[name="mytext1"]').fill('Sachin');
 * page.frame({url: /.*frame_3.html/}).fill('[name="mytext3"]', 'Sachin');
 * page.frame({url: /.*frame_3.html/}).childFrames()[0].click('(//div[@role="listitem"])[1]//span[@role="presentation"]//label[normalize-space()="I am a human"]');
+<br/>
 
 * page.locator('//table[@id="productTable"]//tr').filter({
     has: page.locator('//td'),
     hasText: 'Product 2'
 })
+<br/>
 
 * page.hover('#droppable')
+<br/>
 
 * page.click('#droppable', {button: 'right'});
 * page.click('[ondblclick="myFunction1()"]', {clickCount: 2});
 * page.dblclick('[ondblclick="myFunction1()"]');
+<br/>
 
 * page.locator('#draggable').dragTo(page.locator('#droppable'));
+<br/>
 
 * page.mouse.down();
 * page.mouse.up();
+<br/>
 
 * page.keyboard.down('Control');
 * page.keyboard.down('A');
 * page.keyboard.up('A');
 * page.keyboard.up('Control');
+<br/>
 
 * page.locator('#filesToUpload').setInputFiles('..\\tests\\resources\\File_1.pdf');
 * page.locator('#filesToUpload').setInputFiles(['File_1.pdf', 'File_2.pdf']);
+<br/>
 
 * page.screenshot({path: "sc.png"});
 * page.screenshot({path: "sc_full.png", fullPage: true});
 * page.locator('[name="BookTable"]').screenshot({path: "table.png"});
+<br/>
 
 * page.evaluate(() => {
 	return window.document.querySelector('locator').textContent;
 })
+<br/>
 
 * test('Test Name', async ({page, browserName}, testInfo) => {
 	await page.goto('https://www.google.com');
