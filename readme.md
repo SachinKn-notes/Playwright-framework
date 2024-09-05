@@ -116,10 +116,11 @@ async function test() {
 
 test();
 
-
-To run this execute below command
-----------------------------------------
-- node fileName.js
+/*
+	To run this execute below command
+	----------------------------------------
+	- node fileName.js
+*/
 ```
 
 </details>
