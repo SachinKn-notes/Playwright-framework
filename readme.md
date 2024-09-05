@@ -1280,23 +1280,20 @@ test('Browser Context & Multiple pages', async () => {
 
 ### 2. Handleing Multiple Pages/Tabs
 ```javascript
-const {test, expect, chromium} = require('@playwright/test');
+const { test } = require('@playwright/test');
 
-test('Handleing Multiple Pages/Tabs', async () => {
+test('Handleing Multiple Pages/Tabs', async ({page}) => {
 
-    const browser = await chromium.launch();
-    const context = await browser.newContext();
-    const page1 = await context.newPage();
+    await page.goto('https://testautomationpractice.blogspot.com');
 
-    await page1.goto('https://testautomationpractice.blogspot.com');
-    await page1.fill('[id="name"]', 'Sachin');
+    const context = page.context();
 
     const promisePage = context.waitForEvent('page');
-    await page1.click('//button[.="New Browser Window"]');
+    await page.click('//button[.="New Browser Window"]');
 
     const page2 = await promisePage;
 
-    console.log(await page1.title());
+    console.log(await page.title());
     console.log(await page2.title());
 
     console.log('Total number of pages created:', context.pages().length);
