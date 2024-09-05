@@ -26,13 +26,14 @@
 <br/>
 
 * dialog             
-  	page.on('dialog', async (dialog) => {
-  		console.log(dialog.type());                
+	page.on('dialog', async (dialog) => {
+		console.log(dialog.type());                
 		console.log(dialog.message());
-  <br/>          
+<br/>
+
 		await dialog.accept(); // for alert dialog              
 		await dialog.accept('Sachin');  // for prompt dialog                
-  		await dialog.dismiss(); // for confirm dialog            
+		await dialog.dismiss(); // for confirm dialog            
 });              
 <br/>
 
