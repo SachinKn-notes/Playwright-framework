@@ -1,87 +1,5 @@
 # Playwright Notes
 
-## Playwright page methods
-```javascript
-page.click(locator);
-
-page.check(locator);
-page.uncheck(locator);
-
-page.fill(locator, 'Sachin');
-page.type(locator, 'Sachin');
-
-page.textContent(locator)
-
-page.press(locator, 'Control+A');
-
-page.selectOption(locator, { value: 'in' });
-page.selectOption(locator, { index: 1 });
-page.selectOption(locator, { lable: 'India' });
-page.selectOption(locator, 'India');
-page.selectOption(locator, ['red', 'green', 'white']);
-
-dialog             
-page.on('dialog', async (dialog) => {
-	console.log(dialog.type());                
-	console.log(dialog.message());
-
-	await dialog.accept(); // for alert dialog              
-	await dialog.accept('Sachin');  // for prompt dialog                
-	await dialog.dismiss(); // for confirm dialog            
-});              
-
-page.frames().length;
-page.frameLocator('[src="frame_1.html"]').locator('[name="mytext1"]').fill('Sachin');
-page.frame({url: /.*frame_3.html/}).fill('[name="mytext3"]', 'Sachin');
-page.frame({url: /.*frame_3.html/}).childFrames()[0]
-  	.click('(//div[@role="listitem"])[1]//span[@role="presentation"]//label[normalize-space()="I am a human"]');
-
-page.locator('//table[@id="productTable"]//tr').filter({
-	has: page.locator('//td'),
-	hasText: 'Product 2'
-})
-
-page.hover('#droppable')
-
-page.click('#droppable', {button: 'right'});
-page.click('[ondblclick="myFunction1()"]', {clickCount: 2});
-page.dblclick('[ondblclick="myFunction1()"]');
-
-page.locator('#draggable').dragTo(page.locator('#droppable'));
-
-page.mouse.down();
-page.mouse.up();
-
-page.keyboard.down('Control');
-page.keyboard.down('A');
-page.keyboard.up('A');
-page.keyboard.up('Control');
-
-page.locator('#filesToUpload').setInputFiles('..\\tests\\resources\\File_1.pdf');
-page.locator('#filesToUpload').setInputFiles(['File_1.pdf', 'File_2.pdf']);
-
-page.screenshot({path: "sc.png"});
-page.screenshot({path: "sc_full.png", fullPage: true});
-page.locator('[name="BookTable"]').screenshot({path: "table.png"});
-
-page.evaluate(() => {
-	return window.document.querySelector('locator').textContent;
-})
-```
-
-## Commands
-1. **npm init playwright@latest** -->  To install playwright
-2. **npx playwright test** --> Runs the end-to-end tests.
-3. **npx playwright test --ui** --> Starts the interactive UI mode.
-4. **npx playwright test --project=chromium** --> Runs the tests only on Desktop Chrome.
-5. **npx playwright test --headed** --> Runs the tests in headed mode.
-6. **npx playwright test example** --> Runs the tests in a specific file.
-7. **npx playwright test --debug** --> Runs the tests in debug mode.
-8. **npx playwright codegen** --> Auto generate tests with Codegen.
-9. **npx playwright show-report** --> To see report.
-10. **npx playwright test uat\homePageTest.spec.js** --> To run only specific module tests
-11. **npx playwright test uat\homePageTest** --> To run only specific module tests
-
 ## Playwright Test Examples
 ### 1. Simple Test in Playwright
 
@@ -148,110 +66,6 @@ test('Test Name', async ({page, browserName}, testInfo) => {
 	await page.close();
 })
 ```
-
-<details>
-<summary>Click here for more</summary>
-
-```javascript
-const {test, expect} = require('@playwright/test')
-
-test('Home page test', async ({page}) => {
-
-    await page.goto('https://uat.odysol.com/swift/cruise?siid=130386');
-
-    let pageTitle = await page.title();
-    let pageUrl = await page.url();
-
-    console.log('pageTitle', pageTitle);
-    console.log('pageUrl', pageUrl);
-
-    await expect(page).toHaveTitle('Odyssey UAT- USD: Cruise Planner');
-    await expect(page).toHaveURL('https://uat.odysol.com/swift/cruise?siid=130386');
-
-    // await new Promise(r => setTimeout(r, 8000));
-    await page.waitForTimeout(8000);
-
-    // Approach-1 to locate & perform actions on web browser
-    let advanceSearchLinkLocator = await page.locator('[data-ody-id="AdvanceSearchLink"]');
-    advanceSearchLinkLocator.click();
-
-    await page.waitForTimeout(2000);
-
-    // Approach-2 to locate & perform actions on web browser
-    await page.locator('[placeholder="Select Cruise Line"]').fill('Royal Caribbean');
-    await page.keyboard.press('Enter');
-
-    await page.waitForTimeout(4000);
-
-    // Approach-3 to locate & perform actions on web browser -- fill will type/set the entaire text at a time.
-    await page.fill('[placeholder="Select Ship"]', 'Freedom of the Seas');
-    await page.keyboard.press('Enter');
-
-    await page.waitForTimeout(4000);
-    
-    // Approach-4 to locate & perform actions on web browser -- Type will type letter by letter on the text field.
-    await page.type('[data-ody-id="portsOfCall"]', 'Miami');
-    await page.keyboard.press('Tab');
-
-    await page.waitForTimeout(4000);
-
-    // Approach-5 to locate & perform actions on web browser
-    await page.click('//*[@data-ody-id="SearchButton"]');
-
-    await page.waitForTimeout(2000);
-
-    await page.close();
-})
-```
-</details>
-
-## Assertions
-
-### 1. Positive assertions
-- await expect(page).**toHaveTitle**('--title');
-- await expect(page).**toHaveURL**('--url');
-  
-* await expect(page.locator('--locator')).**toBeVisible**();
-* await expect(page.locator('--locator')).**toBeEnabled**();
-* await expect(page.locator('--locator')).**toBeDisabled**();
-* await expect(page.locator('--locator')).**toBeChecked**();
-  
-- await expect(page.locator('--locator')).**toHaveAttribute**('name', 'modifySearch');
-- await expect(page.locator('--locator')).**toHaveCSS**('background-color', 'rgba(0, 0, 0, 0)');
-- await expect(page.locator('--locator')).**toHaveClass**('btn btn-lg btn-outline-default d-flex align-items-center ng-star-inserted');
-- await expect(--locator).**toHaveId**('lastname');
-- await expect(--locator).**toHaveJSProperty**('loaded', true);
-- await expect(--locator).**toHaveScreenshot**('image.png');
-- await expect(--locator).**toHaveText**('Search');
-- await expect(--locator).**toContainText**('Search');
-- await expect(--locator).**toHaveValue**('Miami');
-
-```html
-<select id="favorite-colors" multiple>
-    <option value="R">Red</option>
-    <option value="G">Green</option>
-    <option value="B">Blue</option>
-</select>
-```
-
-const multiSelectDdLocator = page.locator('id=favorite-colors');          
-await multiSelectDdLocator .selectOption(['R', 'G']);
-* await expect(multiSelectDdLocator ).**toHaveValues**([/R/, /G/]);
-
-const multiSelectDdOptionsLocator = page.locator('[id=favorite-colors] option');
-* await expect(multiSelectDdOptionsLocator).**toHaveCount**(3);
-
-### 2. Negative Assertions
-- await expect(page).**not**.**toHaveTitle**('--title');
-- await expect(page).**not**.**toHaveURL**('--url');
-
-* await expect(page.locator('--locator')).**not**.**toBeVisible**();
-* await expect(page.locator('--locator')).**not**.**toBeEnabled**();
-* await expect(page.locator('--locator')).**not**.**toBeDisabled**();
-* await expect(page.locator('--locator')).**not**.**toBeChecked**();
-  
-- expect(page).**not**.**toHave**--();
-- etc...
 
 ## Waits
 
@@ -1709,3 +1523,134 @@ test.only('Intercepting - Aborting the response', async ({page}) => {
     await page.pause();
 })
 ```
+
+## Summary
+### 1. All Playwright page fixture methods
+```javascript
+page.click(locator);
+
+page.check(locator);
+page.uncheck(locator);
+
+page.fill(locator, 'Sachin');
+page.type(locator, 'Sachin');
+
+page.textContent(locator)
+
+page.press(locator, 'Control+A');
+
+page.selectOption(locator, { value: 'in' });
+page.selectOption(locator, { index: 1 });
+page.selectOption(locator, { lable: 'India' });
+page.selectOption(locator, 'India');
+page.selectOption(locator, ['red', 'green', 'white']);
+
+dialog             
+page.on('dialog', async (dialog) => {
+	console.log(dialog.type());                
+	console.log(dialog.message());
+
+	await dialog.accept(); // for alert dialog              
+	await dialog.accept('Sachin');  // for prompt dialog                
+	await dialog.dismiss(); // for confirm dialog            
+});              
+
+page.frames().length;
+page.frameLocator('[src="frame_1.html"]').locator('[name="mytext1"]').fill('Sachin');
+page.frame({url: /.*frame_3.html/}).fill('[name="mytext3"]', 'Sachin');
+page.frame({url: /.*frame_3.html/}).childFrames()[0]
+  	.click('(//div[@role="listitem"])[1]//span[@role="presentation"]//label[normalize-space()="I am a human"]');
+
+page.locator('//table[@id="productTable"]//tr').filter({
+	has: page.locator('//td'),
+	hasText: 'Product 2'
+})
+
+page.hover('#droppable')
+
+page.click('#droppable', {button: 'right'});
+page.click('[ondblclick="myFunction1()"]', {clickCount: 2});
+page.dblclick('[ondblclick="myFunction1()"]');
+
+page.locator('#draggable').dragTo(page.locator('#droppable'));
+
+page.mouse.down();
+page.mouse.up();
+
+page.keyboard.down('Control');
+page.keyboard.down('A');
+page.keyboard.up('A');
+page.keyboard.up('Control');
+
+page.locator('#filesToUpload').setInputFiles('..\\tests\\resources\\File_1.pdf');
+page.locator('#filesToUpload').setInputFiles(['File_1.pdf', 'File_2.pdf']);
+
+page.screenshot({path: "sc.png"});
+page.screenshot({path: "sc_full.png", fullPage: true});
+page.locator('[name="BookTable"]').screenshot({path: "table.png"});
+
+page.evaluate(() => {
+	return window.document.querySelector('locator').textContent;
+})
+```
+
+### 2. All Playwright Commands
+1. **npm init playwright@latest** -->  To install playwright
+2. **npx playwright test** --> Runs the end-to-end tests.
+3. **npx playwright test --ui** --> Starts the interactive UI mode.
+4. **npx playwright test --project=chromium** --> Runs the tests only on Desktop Chrome.
+5. **npx playwright test --headed** --> Runs the tests in headed mode.
+6. **npx playwright test example** --> Runs the tests in a specific file.
+7. **npx playwright test --debug** --> Runs the tests in debug mode.
+8. **npx playwright codegen** --> Auto generate tests with Codegen.
+9. **npx playwright show-report** --> To see report.
+10. **npx playwright test uat\homePageTest.spec.js** --> To run only specific module tests
+11. **npx playwright test uat\homePageTest** --> To run only specific module tests
+
+### 3. Assertions
+
+#### Positive assertions
+- await expect(page).**toHaveTitle**('--title');
+- await expect(page).**toHaveURL**('--url');
+  
+* await expect(page.locator('--locator')).**toBeVisible**();
+* await expect(page.locator('--locator')).**toBeEnabled**();
+* await expect(page.locator('--locator')).**toBeDisabled**();
+* await expect(page.locator('--locator')).**toBeChecked**();
+  
+- await expect(page.locator('--locator')).**toHaveAttribute**('name', 'modifySearch');
+- await expect(page.locator('--locator')).**toHaveCSS**('background-color', 'rgba(0, 0, 0, 0)');
+- await expect(page.locator('--locator')).**toHaveClass**('btn btn-lg btn-outline-default d-flex align-items-center ng-star-inserted');
+- await expect(--locator).**toHaveId**('lastname');
+- await expect(--locator).**toHaveJSProperty**('loaded', true);
+- await expect(--locator).**toHaveScreenshot**('image.png');
+- await expect(--locator).**toHaveText**('Search');
+- await expect(--locator).**toContainText**('Search');
+- await expect(--locator).**toHaveValue**('Miami');
+
+```html
+<select id="favorite-colors" multiple>
+    <option value="R">Red</option>
+    <option value="G">Green</option>
+    <option value="B">Blue</option>
+</select>
+```
+
+const multiSelectDdLocator = page.locator('id=favorite-colors');          
+await multiSelectDdLocator .selectOption(['R', 'G']);
+* await expect(multiSelectDdLocator ).**toHaveValues**([/R/, /G/]);
+
+const multiSelectDdOptionsLocator = page.locator('[id=favorite-colors] option');
+* await expect(multiSelectDdOptionsLocator).**toHaveCount**(3);
+
+#### Negative Assertions
+- await expect(page).**not**.**toHaveTitle**('--title');
+- await expect(page).**not**.**toHaveURL**('--url');
+
+* await expect(page.locator('--locator')).**not**.**toBeVisible**();
+* await expect(page.locator('--locator')).**not**.**toBeEnabled**();
+* await expect(page.locator('--locator')).**not**.**toBeDisabled**();
+* await expect(page.locator('--locator')).**not**.**toBeChecked**();
+  
+- expect(page).**not**.**toHave**--();
+- etc...
