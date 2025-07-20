@@ -4,6 +4,7 @@
   "description": "1. **npm init playwright@latest** -->  To install playwright\r 2. **npx playwright test** --> Runs the end-to-end tests.\r 3. **npx playwright test --ui** --> Starts the interactive UI mode.\r 4. **npx playwright test --project=chromium** --> Runs the tests only on Desktop Chrome.\r 5. **npx playwright test --headed** --> Runs the tests in headed mode.\r 6. **npx playwright test example** --> Runs the tests in a specific file.\r 7. **npx playwright test --debug** --> Runs the tests in debug mode.\r 8. **npx playwright codegen** --> Auto generate tests with Codegen.\r 9. **npx playwright show-report** --> To see report.\r 10. **npx playwright test uat\\homePageTest.spec.js** --> To run only specific module tests\r 11. **npx playwright test uat\\homePageTest** --> To run only specific module tests",
   "main": "index.js",
   "scripts": {
+    "install": "npx playwright install",
     "test": "npx playwright test DPCP_Test --project=chrome"
   },
   "keywords": [],
