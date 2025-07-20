@@ -114,8 +114,5 @@ module.exports = defineConfig({
     //   },
     // },
   ],
-
-  globalSetup: require.resolve('./global-setup'),
-  globalTeardown: require.resolve('./global-teardown'),
 });
 
