@@ -3,7 +3,7 @@ pipeline {
     parameters {
         string(name: 'Name', defaultValue: "Sachin")
         choice(name: 'Browser', choices: ['chromium', 'firefox', 'webkit', 'MicrosoftEdge', 'GoogleChrome'])
-        choice(name: 'Scripts', choices: ['ID-01', 'ID-02', 'ID-03', '@regression', '@sanity'])
+        choice(name: 'script', choices: ['id-1', 'id-2', 'id-3', 'id-4', 'id-5', 'id-6', 'smoke', 'reg'])
         booleanParam(name: 'Headed', defaultValue: true)
         booleanParam(name: 'Debug', defaultValue: false)
     }
