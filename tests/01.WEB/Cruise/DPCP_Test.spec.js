@@ -5,7 +5,7 @@ test('Login test - @ODY-1 - @smoke', async ({page, loginModule, siteSelectionMod
 
     test.setTimeout(480000);
 
-    const siid = '130386';
+    const siid = '130385';
 
     // Login Page actions
     await loginModule.waitForPageToLoad();
